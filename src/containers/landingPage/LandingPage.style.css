@@ -1,0 +1,41 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.container{
+    padding-top: 4rem;
+    padding-bottom: 6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+.container__left{
+    width: 50%;
+    margin-top: auto;
+    margin-bottom: auto ;
+    padding-right: 6rem;
+
+}
+.container__left span{
+    color: #d6ca03;
+}
+p{
+    font-family: 'Poppins', 'Helvetica Neue',;
+}
+.container__left p{
+    font-family: 'Poppins', sans-serif;
+    /* line-height: 2rem; */
+    padding: 2rem 0 2rem 0;
+    font-size: 1.5em;
+    font-family: bold;
+    color: #818a9c;
+}
+
+
+.container__right{
+    width: 50%; /* Set the width of the parent div */
+    height: 50rem; /* Set the height of the parent div */
+    overflow: hidden; /* Hide any overflowing content */
+  
+}
+
+

@@ -1,0 +1,41 @@
+.text__container{
+    display: flex;
+    
+    justify-content: space-between;
+    align-items: center;
+    margin: 4rem 0;
+    .text__container__left{
+        padding: 2rem;
+        width: 100%;
+        span{
+            color: #d6ca03;
+        }
+    }
+    .text__container__right{
+        width: 100%;
+        h6{
+            text-align: start;
+            font-family: 'Poppins', sans-serif;
+            /* line-height: 2rem; */
+            
+            padding: 1rem 0 1rem 0;
+            // font-size: 1.5em;
+            font-family: bold;
+        }
+    }
+    
+}
+.text__container.--border{
+    padding: 4rem 0;
+    border-top:1px black solid ;
+    border-bottom:1px black solid ;
+    .text__container__left{
+        align-self: flex-start;
+        img{
+            margin: 4rem 0;
+            width: 500px;
+            filter: grayscale(100%);
+        }
+    }
+}
+

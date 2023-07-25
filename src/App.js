@@ -17,8 +17,8 @@ function App() {
         <Container>
         <NavigationBar></NavigationBar>
         <LandingPage></LandingPage>
-        <Products></Products>
         <AboutUS></AboutUS>
+        <Products></Products>
         <OurClinets></OurClinets>
         <ContactUS></ContactUS>
         <Footer></Footer>

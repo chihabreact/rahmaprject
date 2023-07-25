@@ -1,0 +1,9 @@
+.video{
+    video{
+        width: 100%; /* Video takes full width of the .parent div */
+        height: 100%;
+        max-width: calc(100%); /* Subtract the total margins (left + right) from the video width */
+        top: 0;
+        left: 0;
+
+    }}  

@@ -42,7 +42,7 @@ const AboutUs = () => {
             continue to innovate, expand our offerings, and provide the best
             possible solutions for our customers' needs.
           </Typography>
-          <Typography>
+          <Typography variant="h6" color="grey">
             Errahma Group was founded in 1995 as a small equipment sales
             company. Over the years, our dedication to providing high-quality
             products and exceptional customer service has allowed us to grow

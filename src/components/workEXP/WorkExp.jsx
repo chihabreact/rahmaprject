@@ -9,7 +9,7 @@ const WorkExp = () => {
           We have a dedicated and experienced team ready to assist you with all
           your equipment needs.
         </Typography>
-        <Typography variant="h1" fontWeight="bold">
+        <Typography variant="h1" fontWeight="bold" className="sec">
           30+
         </Typography>
       </div>

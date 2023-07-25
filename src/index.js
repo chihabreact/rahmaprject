@@ -1,13 +1,31 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App";
+
+import {
+  createBrowserRouter,
+  RouterProvider
+} from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
+
+import Home from "./routes/home/home.component";
+import Authentication from "./routes/authentication/authentication.component";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />
+  },
+  {
+    path: "/authentication",
+    element: <Authentication />
+  }
+]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 

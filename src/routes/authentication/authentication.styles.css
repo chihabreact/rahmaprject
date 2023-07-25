@@ -32,6 +32,8 @@
 }
 
 .company-name {
+    display: flex;
+    align-items: center;
     font-size: 1.7rem;
     text-align: center;
     vertical-align: middle;
@@ -41,11 +43,13 @@
 .sign-in-header-text {
     text-align: center;
     font-weight: normal;
+    margin: 21px 0px;
 }
 
 .sign-in-header-paragraph {
     text-align: center;
     opacity: 0.6;
+    margin: 10px 0px;
 }
 
 .colored-text {

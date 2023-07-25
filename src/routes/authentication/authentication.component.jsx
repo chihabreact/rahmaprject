@@ -1,5 +1,6 @@
 import SignInForm from "../../components/sign-in-form/sign-in-form.component"
 
+import landcruiserImage from "../../assets/landcruiser.jpg"
 import "./authentication.styles.css"
 
 const Authentication = () => {
@@ -23,7 +24,7 @@ const Authentication = () => {
                 <SignInForm className="form-container"></SignInForm>
             </div>
         </div>
-            <img className="img" src="/landcruiser.jpg" alt="landcruiser" />
+            <img className="img" src={landcruiserImage} alt="landcruiser" />
         {/* <div className="img"></div> */}
         
     </div>

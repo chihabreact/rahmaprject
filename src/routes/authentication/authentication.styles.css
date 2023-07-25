@@ -1,0 +1,88 @@
+.authentication-container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    /* justify-content: space-between; */
+}
+
+.left-side-wrapper {
+    width: 45%;
+    margin: 0% 25px 0% 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.left-side-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 5rem;
+    height: 5rem;
+}
+
+.company-name {
+    font-size: 1.7rem;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: normal;
+}
+
+.sign-in-header-text {
+    text-align: center;
+    font-weight: normal;
+}
+
+.sign-in-header-paragraph {
+    text-align: center;
+    opacity: 0.6;
+}
+
+.colored-text {
+    color: #E7B10A;
+    opacity: 1;
+}
+
+.img {
+    height: 100%;
+    width: 55%;
+    object-fit: cover;
+}
+
+@media (max-width: 912px) {
+    .left-side-wrapper {
+        width: 100%;
+    }
+
+    .img {
+        display: none;
+    }
+}
+
+@media (min-width: 352px) and (max-width: 912px) {
+    .left-side-header {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 351px) {
+    .company-name {
+        display: none;
+    }
+    
+    .left-side-header {
+        width: 100%;
+        justify-content: center;
+    }
+}

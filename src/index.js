@@ -2,24 +2,22 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
-import {
-  createBrowserRouter,
-  RouterProvider
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 
 import Home from "./routes/home/home.component";
-import Authentication from "./routes/authentication/authentication.component";
+import Authentication from "./routes/Login/Login";
+import Login from "./routes/Login/Login";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />
+    element: <Home />,
   },
   {
-    path: "/authentication",
-    element: <Authentication />
-  }
+    path: "/login",
+    element: <Login />,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

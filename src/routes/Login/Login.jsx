@@ -1,5 +1,5 @@
 import SignInForm from "../../components/sign-in-form/sign-in-form.component";
-
+import { Link } from "react-router-dom";
 import landcruiserImage from "../../assets/landcruiser.jpg";
 import "./Login.styles.css";
 
@@ -15,12 +15,12 @@ const Login = () => {
               className="logo"
             ></img>
           </div>
-          <div>
+          <Link to="/" className="company-name">
             <h1 className="company-name">
               <span className="colored-text">E</span>RRAHMA{" "}
               <span className="colored-text">G</span>ROUP
             </h1>
-          </div>
+          </Link>
         </div>
         <div className="form-wrapper">
           <h1 className="sign-in-header-text">Sign In</h1>

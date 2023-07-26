@@ -1,0 +1,20 @@
+/* LogosSilder.style.scss */
+.logo__container {
+  
+    .slide-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+  
+    .slider-image {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+    img{
+      height: 300px;
+    }
+  }
+  

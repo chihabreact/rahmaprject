@@ -15,9 +15,15 @@ const Dashboard = () => {
                 <nav className="dashboard-nav-bar">
                     <div className="nav-bar-left">
                         <img className="logo-image-dashboard" src={logo} alt="LOGO" />
-                        <div className="nav-link">Dashboard</div>
-                        <div className="nav-link">Products</div>
-                        <div className="nav-link">Form</div>
+                        <div className="nav-link">
+                            <div>Dashboard</div>
+                        </div>
+                        <div className="nav-link">
+                            <div>Products</div>
+                        </div>
+                        <div className="nav-link">
+                            <div>Form</div>
+                        </div>
                     </div>
                     <div className="nav-bar-right">
                         <div>Admin</div>

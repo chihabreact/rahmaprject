@@ -1,0 +1,18 @@
+.header-row {
+    opacity: 0.7;
+}
+
+.product-image {
+    border-radius: 9px;
+    height: 4rem;
+    width: 4rem;
+}
+
+.delete-icon {
+    color: red;
+}
+
+.center-table-item {
+    display: flex;
+    justify-content: center;
+}

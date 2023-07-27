@@ -17,6 +17,7 @@ const Dashboard = () => {
                         <img className="logo-image-dashboard" src={logo} alt="LOGO" />
                         <div className="nav-link">Dashboard</div>
                         <div className="nav-link">Products</div>
+                        <div className="nav-link">Form</div>
                     </div>
                     <div className="nav-bar-right">
                         <div>Admin</div>

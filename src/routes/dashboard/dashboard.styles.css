@@ -16,8 +16,6 @@
 
 .responsive {
     width: 80%;
-    /* display: flex;
-    justify-content: cen; */
 }
 
 .dashboard-nav-bar {
@@ -41,7 +39,6 @@
 .responsive-container:last-of-type {
     background-color: #F2F3F7;
     height: 100%;
-    /* padding: 20px; */
 }
 
 .header-container {
@@ -65,16 +62,6 @@ h3 {
     opacity: .7;
 }
 
-/* .responsive {
-    width: 80%;
-    height: 4rem;
-    display: flex;
-    justify-content: center;
-}
-
 .product-table-container {
-    background-color: #F2F3F7;
-    width: 50rem;
-    height: 50rem;
-    padding: 20px;
-} */
+    margin-bottom: 20px;
+}

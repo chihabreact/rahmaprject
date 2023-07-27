@@ -34,10 +34,10 @@ const rows = [
 const ProductListDashboard = () => {
   return (
     <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <Table sx={{ minWidth: 250 }} aria-label="simple table">
             <TableHead>
             <TableRow className="header-row">
-                <TableCell >Image</TableCell>
+                <TableCell align="center">Image</TableCell>
                 <TableCell align="center">Name</TableCell>
                 <TableCell align="center">Price</TableCell>
                 <TableCell align="center">Carbs&nbsp;(g)</TableCell>
@@ -50,7 +50,7 @@ const ProductListDashboard = () => {
                 key={row.name}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
-                <TableCell component="th" scope="row">
+                <TableCell align="center" component="th" scope="row">
                     <img className="product-image" src={photo} alt="logo"/>
                 </TableCell>
                 <TableCell align="center">{row.calories}</TableCell>

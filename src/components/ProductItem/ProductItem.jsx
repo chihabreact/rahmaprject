@@ -5,19 +5,19 @@ import "./Productitem.style.scss";
 const ProductItem = ({ product }) => {
   const { name, img } = product;
   return (
-    <div class="cards_item">
-      <div class="card">
-        <div class="card_image">
+    <div className="cards_item">
+      <div className="card">
+        <div className="card_image">
           <img src={img} alt="" />
         </div>
-        <div class="card_content">
+        <div className="card_content">
           <Typography variant="h2" color="white">
             {name}
           </Typography>
-          <p class="card_text">
+          <p className="card_text">
             Demo of pixel perfect pure CSS simple responsive card grid layout
           </p>
-          <button class="btn card_btn">Read More</button>
+          <button className="btn card_btn">Read More</button>
         </div>
       </div>
     </div>

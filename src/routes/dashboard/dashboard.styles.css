@@ -57,29 +57,5 @@
 .responsive-container:last-of-type {
     background-color: #F2F3F7;
     height: 100%;
-}
-
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 20px 0px;
-}
-
-h3 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-}
-
-.add-button {
-    background-color: #00B300;
-    color: white;
-}
-
-.header-paragraph {
-    opacity: .7;
-}
-
-.product-table-container {
-    margin-bottom: 20px;
+    padding: 20px 0;
 }

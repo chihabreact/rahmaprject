@@ -6,7 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 
 import Home from "./routes/home/home.component";
-import Authentication from "./routes/Login/Login";
+import Dashboard from "./routes/dashboard/dashboard.component";
 import Login from "./routes/Login/Login";
 
 const router = createBrowserRouter([
@@ -18,6 +18,10 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Login />,
   },
+  {
+    path: "/dashboard",
+    element: <Dashboard />,
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

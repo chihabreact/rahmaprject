@@ -8,6 +8,7 @@ import reportWebVitals from "./reportWebVitals";
 import Home from "./routes/home/home.component";
 import Dashboard from "./routes/dashboard/dashboard.component";
 import Login from "./routes/Login/Login";
+import ProductsPage from "./routes/Products/ProductsPage";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: "/dashboard/:page",
     element: <Dashboard />,
+  },
+  {
+    path: "/Products",
+    element: <ProductsPage />,
   },
 ]);
 

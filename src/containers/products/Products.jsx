@@ -7,7 +7,7 @@ const Products = () => {
     <div>
       <div className="product__container">
         <Typography variant="h2" fontWeight="bold" padding={4}>
-          Equipment for Every Need
+          EQUIPMENT FOR EVERY NEED
         </Typography>
         <Typography color="gray" variant="h6">
           We offer a wide range of high-quality products, from cars and trucks

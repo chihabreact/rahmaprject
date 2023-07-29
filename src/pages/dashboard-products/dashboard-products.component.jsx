@@ -7,6 +7,11 @@ import ProductListDashboard from "../../components/product-list-dashboard/produc
 
 const DashboardProducts = () => {
   const navigate = useNavigate();
+
+  const onAddProductHandler = () => {
+    navigate("/dashboard/form");        
+  }
+
   return (
     <>
         <div className="header-container">
@@ -15,9 +20,7 @@ const DashboardProducts = () => {
                 <p className="header-paragraph">A list of all the Products</p>
             </div>
             <div className="right-section-header">
-                <Button variant="contained" style={{backgroundColor: "#00B300"}} className="add-button" onClick={() => {
-                    navigate("/dashboard/form")
-                }}>Add Product</Button>
+                <Button variant="contained" style={{backgroundColor: "#00B300"}} className="add-button" onClick={() => onAddProductHandler()}>Add Product</Button>
             </div>
         </div>
         <div className="product-table-container">

@@ -23,7 +23,9 @@ const Dashboard = () => {
             <div className="responsive">
                 <nav className="dashboard-nav-bar">
                     <div className="nav-bar-left">
-                        <img className="logo-image-dashboard" src={logo} alt="LOGO" />
+                        <Link to="/dashboard/products" className="logo-image-dashboard-container">
+                            <img className="logo-image-dashboard" src={logo} alt="LOGO" />
+                        </Link>
                         <Link to="/dashboard/products" className={`nav-link ${page === "products" ? "colored-nav-bar" : ""}`}>
                             <div>Products</div>
                         </Link>

@@ -57,7 +57,7 @@ const DashboardForm = () => {
                     className="dashboard-input-container"
                     label="Price*"
                     name="price"
-                    type="text"
+                    type="number"
                     value={price}
                     placeHolder="Price"
                     required

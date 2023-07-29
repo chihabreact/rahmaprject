@@ -6,10 +6,17 @@ const OurClinets = () => {
   return (
     <div>
       <div className="OurClinents__container">
-        <Typography variant="h2" textAlign="center">
-          Our Clients
+        <Typography
+          variant="h2"
+          fontWeight="bold"
+          padding={4}
+          textAlign="center"
+        >
+          OUR CLIENTS
         </Typography>
         <Typography
+          color="gray"
+          variant="h6"
           textAlign="center"
           sx={{ paddingLeft: "4rem", paddingRight: "4rem", fontSize: "1.5rem" }}
         >

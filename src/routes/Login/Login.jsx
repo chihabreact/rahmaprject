@@ -33,7 +33,6 @@ const Login = () => {
         </div>
       </div>
       <img className="img" src={landcruiserImage} alt="landcruiser" />
-      {/* <div className="img"></div> */}
     </div>
   );
 };

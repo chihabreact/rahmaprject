@@ -31,3 +31,13 @@ input:focus {
     width: 48%;
     margin: 0;
 }
+
+.sign-in-form-input-container input {
+    height: 40px;
+    padding: 2px;
+    font-size: 16px;
+}
+
+.sign-in-form-input-container input::placeholder {
+    opacity: 0.5;
+}

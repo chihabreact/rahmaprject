@@ -16,7 +16,16 @@ const Dashboard = () => {
   let { page } = useParams();
   if (!page) page = "products";
   page = page.toLocaleLowerCase();
-  
+
+  let renderedPage;
+  if (page === "products") {
+    renderedPage = <DashboardProducts />
+  } else if (page === "form") {
+    renderedPage = <DashboardForm />
+  }
+
+//   const renderedPage = page === "products" ? <DashboardProducts /> : <DashboardForm />;
+
   return (
     <div className="dashboard-container">
         <div className="responsive-container">
@@ -43,9 +52,8 @@ const Dashboard = () => {
         <div className="responsive-container">
             <div className="responsive">
                 {
-                    page === "products" ? 
-                        <DashboardProducts /> :
-                        <DashboardForm />
+                    renderedPage
+                    // renderedPage || notFoundPage
                 }
             </div>
         </div>

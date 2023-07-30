@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-
+import "./EquipmentList.style.scss";
+import { Stack } from "@mui/system";
+import EquipmentItem from "../EquipmentItem/EquipmentItem";
 const data = [
   {
     id: 1,
-    name: "Equipment 1",
+    name: "sssssssssssddeent 1",
     imageLink: "https://picsum.photos/id/1015/200/300",
     category: "Industrial Machinery",
   },
@@ -72,21 +74,24 @@ const EquipmentList = () => {
   return (
     <div>
       {/* List of categories */}
-      <ul>
+      <ul className="categoires__list">
         {categories.map((category) => (
-          <li key={category} onClick={() => setSelectedCategory(category)}>
+          <li
+            className="categories__list__item"
+            key={category}
+            onClick={() => setSelectedCategory(category)}
+          >
             {category}
           </li>
         ))}
       </ul>
 
       {/* List of equipment based on selected category */}
-      {filteredEquipment.map((item) => (
-        <div key={item.id}>
-          <h3>{item.name}</h3>
-          <img src={item.imageLink} alt={item.name} />
-        </div>
-      ))}
+      <div className="Equipment__container">
+        {filteredEquipment.map((item) => (
+          <EquipmentItem key={item.id} item={item} />
+        ))}
+      </div>
     </div>
   );
 };

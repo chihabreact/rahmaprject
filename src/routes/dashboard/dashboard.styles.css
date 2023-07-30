@@ -3,7 +3,7 @@
 .dashboard-container {
     font-family: "roboto";
     background-color: white;
-    height: 100%;
+    height: calc(100vh - 3rem);
 }
 
 .responsive-container {
@@ -12,6 +12,7 @@
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     display: flex;
     justify-content: center;
+    overflow: auto;
 }
 
 .responsive {

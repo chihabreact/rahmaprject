@@ -9,7 +9,7 @@ const AboutUs = () => {
     <div>
       <div className="text__container">
         <div className="text__container__left">
-          <Typography variant="h2">
+          <Typography variant="h2" textAlign="start">
             From Humble Beginnings to Industry Leaders:{" "}
             <span> Our Journey and Visionnts</span>
           </Typography>
@@ -26,7 +26,7 @@ const AboutUs = () => {
       <VideoPlayer></VideoPlayer>
       <div className="text__container --border">
         <div className="text__container__left">
-          <Typography variant="h2">
+          <Typography variant="h2" textAlign="start">
             Your Partner in <span>Projects</span>
           </Typography>
           <img src={aboutUsPic} alt="" />

@@ -1,30 +1,63 @@
-
+/* Import the font from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-.container{
-    padding-top: 4rem;
-    padding-bottom: 6rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch;
+/* Apply the Poppins font to the entire document */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
 }
-.container__left{
+
+/* Set up the default container styles */
+.container {
+  padding-top: 4rem;
+  padding-bottom: 6rem;
+  display: flex;
+  flex-direction: column; /* Stack content vertically by default */
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+/* Left container styles */
+.container__left {
+  margin-top: auto;
+  margin-bottom: auto;
+  padding-right: 6rem;
+  text-align: center; /* Center the text in the left container by default */
+}
+
+/* Highlighted text */
+.container__left span {
+  color: #d6ca03;
+}
+
+/* Right container styles */
+.container__right {
+  width: 100%; /* Set the width to take the full width of the parent div */
+  height: 50rem; /* Set the height of the parent div */
+  overflow: hidden; /* Hide any overflowing content */
+}
+
+.container__button{
+  margin: 2rem 0;
+}
+
+/* Responsive Styles */
+@media (min-width: 768px) {
+  /* When the screen size is 768px or larger (tablet and desktop) */
+  .container {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .container__left {
     width: 50%;
-    margin-top: auto;
-    margin-bottom: auto ;
-    padding-right: 6rem;
+    padding-right: 0; /* Remove the padding on the right for the left container */
+    text-align: left; /* Align the text to the left at desktop size */
+  }
 
+  .container__right {
+    width: 50%;
+    height: auto; /* Adjust the height to fit the content at desktop size */
+    margin-left: 1rem; /* Add some spacing between the left and right containers */
+  }
 }
-.container__left span{
-    color: #d6ca03;
-}
-
-
-.container__right{
-    width: 50%; /* Set the width of the parent div */
-    height: 50rem; /* Set the height of the parent div */
-    overflow: hidden; /* Hide any overflowing content */
-  
-}
-
-

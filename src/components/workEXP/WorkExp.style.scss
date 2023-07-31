@@ -1,12 +1,41 @@
-.exp__container{
+/* WorkExp.style.scss */
+
+.exp__container {
     display: flex;
+    flex-direction: column; /* Stack the items vertically by default */
     align-items: center;
     justify-content: space-around;
-    .exp__item{
-        padding: 0.5rem;
-        align-self: flex-start;
+  
+    /* Add some spacing between items */
+    gap: 2rem;
+  
+    /* Add some padding around the container */
+    padding: 2rem;
+  }
+  
+  .exp__item {
+    padding: 1rem; /* Reduce the padding for smaller screens */
+    text-align: center;
+  }
+  
+  .exp__item h1 {
+    padding-top: 2rem; /* Reduce the padding for smaller screens */
+  }
+  
+  /* Responsive Styles */
+  @media (min-width: 768px) {
+    /* When the screen size is 768px or larger (tablet and desktop) */
+    .exp__container {
+      flex-direction: row; /* Align the items side by side */
+      padding: 4rem; /* Increase the padding for larger screens */
     }
-    .exp__item h1{
-        padding-top: 4rem;
-       }
-}
+  
+    .exp__item {
+      padding: 2rem; /* Increase the padding for larger screens */
+    }
+  
+    .exp__item h1 {
+      padding-top: 4rem; /* Increase the padding for larger screens */
+    }
+  }
+  

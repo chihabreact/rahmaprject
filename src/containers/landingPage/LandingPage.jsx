@@ -18,7 +18,7 @@ const LandingPage = () => {
             <span>The Trusted</span> Source for Cars, Trucks, and Heavy
             Equipment.
           </Typography>
-          <Typography color="secondary">
+          <Typography color="secondary" paddingY="2rem">
             We offer a wide selection of top-quality vehicles and machinery for
             sale, backed by our knowledgeable team and exceptional customer
             service.

@@ -1,0 +1,54 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 1rem;
+  height: 557.578px;
+    box-sizing: border-box; /* Include margin and padding in the width calculation */
+  }
+  
+  .card_image {
+   
+    height: 100%;
+    width: 350px;
+    position: relative;
+    overflow: hidden;
+  
+    img {
+      padding: 0.5rem;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      /* Ensure the image takes the full width and height of its parent container */
+      object-position: center; /* Optionally center the image within the container */
+    }
+  }
+  
+
+  
+  .cards_item {
+    /* Fixed width for each card item */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    width: calc(33.3333% - 2rem);
+    flex: 0 0 calc(33.3333% - 2rem); /* Flex basis set to one-third of the row width with spacing */
+    margin: 1rem; /* Adjust the spacing between cards */
+    box-sizing: border-box; /* Include margin and padding in the width calculation */
+  }
+  
+  @media (max-width: 992px) {
+    .cards_item {
+      /* For smaller screens, display two cards per row */
+      width: calc(50% - 2rem);
+      flex: 0 0 calc(50% - 2rem); /* Flex basis set to half of the row width with spacing */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .cards_item {
+      /* For even smaller screens, display one card per row */
+      width: 100%;
+      flex: 0 0 100%; /* Flex basis set to full row width */
+    }
+  }
+  

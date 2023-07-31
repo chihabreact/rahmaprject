@@ -1,13 +1,42 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App";
+
+import { createBrowserRouter, RouterProvider, Switch } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
+
+import Home from "./routes/home/home.component";
+import Dashboard from "./routes/dashboard/dashboard.component";
+import Login from "./routes/Login/Login";
+import ProductsPage from "./routes/Products/ProductsPage";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard />,
+  },
+  {
+    path: "/dashboard/:page",
+    element: <Dashboard />,
+  },
+  {
+    path: "/Products",
+    element: <ProductsPage />,
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 

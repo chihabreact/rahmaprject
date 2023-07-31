@@ -2,8 +2,8 @@ import { useState } from "react"
 
 import "./dashboard-form.styles.css"
 
-import Input from "../../components/input/input.component"
-import TextArea from "../../components/textarea/textarea.component"
+import Input from "../input/input.component"
+import TextArea from "../textarea/textarea.component"
 
 import Button from "@mui/material/Button"
 import { useNavigate } from "react-router-dom"

@@ -30,6 +30,23 @@ const Home = () => {
         fontFamily: "Lato, sans-serif", // Use Lato as the font family for h2
       },
     },
+    palette: {
+      primary: {
+        main: "#d6ca03",
+        light: "#dfd759",
+        dark: "#aaa108",
+      },
+      secondary: {
+        main: "#818a9c",
+        light: "#d1d2d4",
+        dark: "#414244",
+      },
+    },
+    typography: {
+      body1: {
+        fontSize: "1.5rem",
+      },
+    },
   });
 
   return (

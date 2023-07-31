@@ -9,13 +9,13 @@ const AboutUs = () => {
     <div>
       <div className="text__container">
         <div className="text__container__left">
-          <Typography variant="h2" sx={{ fontfamily: "Lato" }}>
+          <Typography variant="h2">
             From Humble Beginnings to Industry Leaders:{" "}
             <span> Our Journey and Visionnts</span>
           </Typography>
         </div>
         <div className="text__container__right">
-          <Typography sx={{ fontFamily: "Roboto" }}>
+          <Typography color="secondary">
             is not just a title, it's a testament to our company's history and
             mission. Founded 1995 by MR BACHIR DEBBAB, ERAHMA GROUP started as a
             small family-owned business with a passion for providing quality
@@ -32,12 +32,7 @@ const AboutUs = () => {
           <img src={aboutUsPic} alt="" />
         </div>
         <div className="text__container__right">
-          <Typography
-            variant="h6"
-            color="grey"
-            fontFamily="font-family: 'Roboto', sans-serif;"
-            paddingY={2}
-          >
+          <Typography color="secondary" paddingY={2}>
             Errahma Group was founded in 1995 as a small equipment sales
             company. Over the years, our dedication to providing high-quality
             products and exceptional customer service has allowed us to grow

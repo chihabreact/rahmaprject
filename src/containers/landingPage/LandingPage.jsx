@@ -5,6 +5,10 @@ import "./LandingPage.style.css";
 import "..//..//typographyStyles.scss";
 import DS7 from "../../assets/DS7.jpg";
 import Slide from "../../components/SimpleSlider/Slide";
+import { grey, red } from "@mui/material/colors";
+
+const color = red[500];
+
 const LandingPage = () => {
   return (
     <div>
@@ -14,7 +18,7 @@ const LandingPage = () => {
             <span>The Trusted</span> Source for Cars, Trucks, and Heavy
             Equipment.
           </Typography>
-          <Typography>
+          <Typography color="secondary">
             We offer a wide selection of top-quality vehicles and machinery for
             sale, backed by our knowledgeable team and exceptional customer
             service.
@@ -27,7 +31,7 @@ const LandingPage = () => {
                 // Add any other custom styles here if needed
               }}
               variant="outlined"
-              color="warning"
+              color="inherit"
               size="large"
             >
               SERVICES

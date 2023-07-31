@@ -14,12 +14,7 @@ const OurClinets = () => {
         >
           OUR CLIENTS
         </Typography>
-        <Typography
-          color="gray"
-          variant="h6"
-          textAlign="center"
-          sx={{ paddingLeft: "4rem", paddingRight: "4rem", fontSize: "1.5rem" }}
-        >
+        <Typography color="secondary" textAlign="center">
           Clients Rely on Us. We have built strong relationships with a diverse
           range of clients, providing them with reliable and high-quality
           equipment to help them succeed in their ventures. From small

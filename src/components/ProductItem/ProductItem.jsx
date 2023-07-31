@@ -18,9 +18,7 @@ const ProductItem = ({ product }) => {
           <img src={img} alt="" />
         </div>
         <div className="card_content">
-          <Typography variant="h2" color="white">
-            {name}
-          </Typography>
+          <Typography color="white">{name}</Typography>
           <button className="btn card_btn" onClick={GoToProducts}>
             Read More
           </button>

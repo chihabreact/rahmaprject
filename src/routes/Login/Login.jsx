@@ -15,7 +15,7 @@ const Login = () => {
               className="logo"
             ></img>
           </div>
-          <Link to="/" className="company-name">
+          <Link to="/" className="company-name-container">
             <h1 className="company-name">
               <span className="colored-text">E</span>RRAHMA{" "}
               <span className="colored-text">G</span>ROUP
@@ -33,7 +33,6 @@ const Login = () => {
         </div>
       </div>
       <img className="img" src={landcruiserImage} alt="landcruiser" />
-      {/* <div className="img"></div> */}
     </div>
   );
 };

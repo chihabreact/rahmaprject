@@ -23,7 +23,6 @@
 
 
 .navbar-links p{
-    /* font-family: 'Domine', serif; */
     margin-right: 10px ;
     margin-left: 10px ;
     display: inline-block;
@@ -31,6 +30,9 @@
     letter-spacing: 0.5px ;
     position: relative;
     cursor: pointer ;
+    font-family: 'Roboto', sans-serif;
+    
+
 }
 .navbar-links p::after{
     content: "";

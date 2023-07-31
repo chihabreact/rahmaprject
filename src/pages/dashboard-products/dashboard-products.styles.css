@@ -20,5 +20,10 @@ h3 {
 }
 
 .product-table-container {
-    margin-bottom: 20px;
+    height: 70vh;
+    overflow: auto;
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    scrollbar-width: none;
 }

@@ -1,4 +1,18 @@
-.contact__container{
-    display: flex;
-    margin-top: 8rem;
-}
+/* ContactUs.stlye.scss */
+
+.contact__container {
+    flex-direction: column; /* Stack the elements vertically by default */
+    margin-top: 4rem; /* Reduce the top margin for smaller screens */
+  }
+  
+  /* Responsive Styles */
+  @media (min-width: 768px) {
+    /* When the screen size is 768px or larger (tablet and desktop) */
+    .contact__container {
+      flex-direction: row; /* Align the elements side by side */
+      justify-content: space-between; /* Add space between the elements */
+      align-items: center; /* Center the elements vertically */
+      margin-top: 8rem; /* Increase the top margin for larger screens */
+    }
+  }
+  

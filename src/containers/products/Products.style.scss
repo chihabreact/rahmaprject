@@ -1,4 +1,15 @@
-.product__container{
-    padding: 4rem;
-text-align: center;
-}
+/* Products.style.scss */
+
+.product__container {
+    padding: 2rem; /* Reduce the padding for smaller screens */
+    text-align: center;
+  }
+  
+  /* Responsive Styles */
+  @media (min-width: 768px) {
+    /* When the screen size is 768px or larger (tablet and desktop) */
+    .product__container {
+      padding: 4rem;
+    }
+  }
+  

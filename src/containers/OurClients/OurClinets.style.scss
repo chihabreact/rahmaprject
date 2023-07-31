@@ -1,3 +1,15 @@
-.OurClinents__container{
-    margin : 4rem 0 4rem 0;
-}
+/* OurClinets.style.scss */
+
+.OurClinents__container {
+    margin: 2rem 0; /* Reduce the top and bottom margins for smaller screens */
+    text-align: center; /* Center the text */
+  }
+  
+  /* Responsive Styles */
+  @media (min-width: 768px) {
+    /* When the screen size is 768px or larger (tablet and desktop) */
+    .OurClinents__container {
+      margin: 4rem 0; /* Increase the top and bottom margins for larger screens */
+    }
+  }
+  

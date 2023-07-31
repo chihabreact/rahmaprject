@@ -1,0 +1,26 @@
+/* Assuming your desired breakpoint for small screens is 600px */
+
+/* Footer.style.scss */
+.footer__container {
+    text-align: center;
+  }
+  
+  .social__icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 600px) {
+    .social__icons {
+      flex-direction: column; /* Stack the icons vertically on small screens */
+      gap: 0.5rem; /* Reduce the gap between the icons */
+    }
+    
+    .facebook__icon,
+    .instagram__icon {
+      font-size: 60px; /* Reduce the icon size for small screens */
+    }
+  }
+  

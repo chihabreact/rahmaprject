@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import "./product-list-dashboard.styles.css"
 
 import IconButton from "@mui/material/IconButton";
@@ -8,9 +10,9 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import TablePagination from '@mui/material/TablePagination';
 import Paper from '@mui/material/Paper';
 
-import logo from "../../assets/logo.jpg"
 import photo from "../../assets/landcruiser.jpg"
 
 function createData(
@@ -29,43 +31,82 @@ const rows = [
     createData('Eclair', 262, 16.0, 24, 6.0),
     createData('Cupcake', 305, 3.7, 67, 4.3),
     createData('Gingerbread', 356, 16.0, 49, 3.9),
+    createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
+    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
+    createData('Eclair', 262, 16.0, 24, 6.0),
+    createData('Cupcake', 305, 3.7, 67, 4.3),
+    createData('Gingerbread', 356, 16.0, 49, 3.9),
+    createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
+    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
+    createData('Eclair', 262, 16.0, 24, 6.0),
+    createData('Cupcake', 305, 3.7, 67, 4.3),
+    createData('Gingerbread', 356, 16.0, 49, 3.9),
 ];
 
 const ProductListDashboard = () => {
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(4);
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
+
   return (
-    <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 250 }} aria-label="simple table">
-            <TableHead>
+    <Paper sx={{ width: '100%' }}>
+      <TableContainer sx={{ maxHeight: 440 }}>
+        <Table stickyHeader aria-label="sticky table">
+          <TableHead>
             <TableRow className="header-row">
-                <TableCell sx={{ padding: 1 }} align="center">Image</TableCell>
-                <TableCell sx={{ padding: 1 }} align="center">Name</TableCell>
-                <TableCell sx={{ padding: 1 }} align="center">Price</TableCell>
-                <TableCell sx={{ padding: 1 }} align="center">Carbs&nbsp;(g)</TableCell>
-                <TableCell sx={{ padding: 1 }} align="center">Action</TableCell>
-            </TableRow>
-            </TableHead>
-            <TableBody>
-            {rows.map((row) => (
-                <TableRow
-                key={row.name}
-                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                >
-                <TableCell sx={{ padding: 1 }} align="center" component="th" scope="row">
-                    <img className="product-image" src={photo} alt="logo"/>
-                </TableCell>
-                <TableCell sx={{ padding: 1 }} align="center">{row.calories}</TableCell>
-                <TableCell sx={{ padding: 1 }} align="center">{row.fat}</TableCell>
-                <TableCell sx={{ padding: 1 }} align="center">{row.carbs}</TableCell>
-                <TableCell sx={{ padding: 1 }} align="center">
-                    <IconButton aria-label="delete" size="large">
-                        <DeleteIcon fontSize="inherit" className="delete-icon" />
-                    </IconButton>
-                </TableCell>
+                    <TableCell sx={{ padding: 1 }} align="center">Image</TableCell>
+                    <TableCell sx={{ padding: 1 }} align="center">Name</TableCell>
+                    <TableCell sx={{ padding: 1 }} align="center">Price</TableCell>
+                    <TableCell sx={{ padding: 1 }} align="center">Carbs&nbsp;(g)</TableCell>
+                    <TableCell sx={{ padding: 1 }} align="center">Action</TableCell>
                 </TableRow>
-            ))}
-            </TableBody>
+          </TableHead>
+          <TableBody>
+            {rows
+              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              .map((row) => {
+                return (
+                    <TableRow
+                        hover
+                        role="checkbox"
+                        key={row.name}
+                        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                    >
+                            <TableCell sx={{ padding: 1 }} align="center" component="th" scope="row">
+                                <img className="product-image" src={photo} alt="logo"/>
+                            </TableCell>
+                            <TableCell sx={{ padding: 1 }} align="center">{row.calories}</TableCell>
+                            <TableCell sx={{ padding: 1 }} align="center">{row.fat}</TableCell>
+                            <TableCell sx={{ padding: 1 }} align="center">{row.carbs}</TableCell>
+                            <TableCell sx={{ padding: 1 }} align="center">
+                               <IconButton aria-label="delete" size="large">
+                                <DeleteIcon fontSize="inherit" className="delete-icon" />
+                            </IconButton>
+                         </TableCell>
+                    </TableRow>
+                );
+              })}
+          </TableBody>
         </Table>
-        </TableContainer>
+      </TableContainer>
+      <TablePagination
+        rowsPerPageOptions={[2, 4, 10]}
+        component="div"
+        count={rows.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onPageChange={handleChangePage}
+        onRowsPerPageChange={handleChangeRowsPerPage}
+      />
+    </Paper>
   )
 }
 

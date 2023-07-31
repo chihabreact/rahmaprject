@@ -9,7 +9,7 @@ const Products = () => {
         <Typography variant="h2" fontWeight="bold" padding={4}>
           EQUIPMENT FOR EVERY NEED
         </Typography>
-        <Typography color="gray" variant="h6">
+        <Typography color="secondary">
           We offer a wide range of high-quality products, from cars and trucks
           to generators and heavy machinery, all well-maintained for reliability
           and longevity. Our competitive pricing makes it easy to find the right

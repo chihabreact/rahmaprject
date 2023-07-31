@@ -39,8 +39,26 @@ const SignInForm = () => {
 
     return (
         <div>
-            <Input label="Email *" required type="email" name="email" value={email} placeHolder="example@mail.com" onChange={onChangeHandler}/>
-            <Input label="Password *" required type="password" name="password" value={password} placeHolder="at least 8 characters" onChange={onChangeHandler} />
+            <Input 
+                label="Email *" 
+                required 
+                type="email" 
+                name="email" 
+                value={email} 
+                placeHolder="example@mail.com" 
+                onChange={onChangeHandler} 
+                className="sign-in-form-input-container"
+            />
+            <Input 
+                label="Password *" 
+                required
+                type="password" 
+                name="password" 
+                value={password} 
+                placeHolder="at least 8 characters" 
+                onChange={onChangeHandler} 
+                className="sign-in-form-input-container"
+            />
             <Button className="loginButton" type="button" onClick={(event) => onSubmitHandler(event)} />
         </div>
     )

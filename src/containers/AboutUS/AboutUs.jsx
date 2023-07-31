@@ -15,7 +15,7 @@ const AboutUs = () => {
           </Typography>
         </div>
         <div className="text__container__right">
-          <Typography>
+          <Typography color="secondary">
             is not just a title, it's a testament to our company's history and
             mission. Founded 1995 by MR BACHIR DEBBAB, ERAHMA GROUP started as a
             small family-owned business with a passion for providing quality
@@ -32,17 +32,7 @@ const AboutUs = () => {
           <img src={aboutUsPic} alt="" />
         </div>
         <div className="text__container__right">
-          <Typography fontWeight="bold" color="black" variant="h6">
-            dedication, and a commitment to excellence, we grew our business to
-            become one of the industry leaders in automotive and heavy machinery
-            industries and export and import industry. Today, we offer a wide
-            range of services, including equipment sales, maintenance, and
-            repair, and we pride ourselves on providing top-notch customer
-            service to all of our clients. Our vision for the future is to
-            continue to innovate, expand our offerings, and provide the best
-            possible solutions for our customers' needs.
-          </Typography>
-          <Typography variant="h6" color="grey">
+          <Typography color="secondary" paddingY={2}>
             Errahma Group was founded in 1995 as a small equipment sales
             company. Over the years, our dedication to providing high-quality
             products and exceptional customer service has allowed us to grow

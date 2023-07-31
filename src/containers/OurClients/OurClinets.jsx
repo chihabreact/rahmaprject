@@ -6,13 +6,15 @@ const OurClinets = () => {
   return (
     <div>
       <div className="OurClinents__container">
-        <Typography variant="h2" textAlign="center">
-          Our Clients
-        </Typography>
         <Typography
+          variant="h2"
+          fontWeight="bold"
+          padding={4}
           textAlign="center"
-          sx={{ paddingLeft: "4rem", paddingRight: "4rem", fontSize: "1.5rem" }}
         >
+          OUR CLIENTS
+        </Typography>
+        <Typography color="secondary" textAlign="center">
           Clients Rely on Us. We have built strong relationships with a diverse
           range of clients, providing them with reliable and high-quality
           equipment to help them succeed in their ventures. From small

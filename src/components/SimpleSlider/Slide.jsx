@@ -7,6 +7,12 @@ import landingpage2 from "../../assets/landingpage2 (2).jpg";
 import { WidthFull } from "@mui/icons-material";
 
 export default function Slide() {
+  const images = [
+    DS7,
+    landingpage1,
+    landingpage2,
+    // Add more image URLs here
+  ];
   var settings = {
     dots: true,
     fade: true,
@@ -17,18 +23,19 @@ export default function Slide() {
     speed: 2000,
     autoplaySpeed: 5000,
     cssEase: "linear",
+    WidthFull: false,
   };
   return (
-    <Slider {...settings}>
-      <div className="image_slider_container">
-        <img className="img" src={DS7} alt="ds7" />
-      </div>
-      <div>
-        <img className="img" src={landingpage1} alt="ds7" />
-      </div>
-      <div>
-        <img className="img" src={landingpage2} alt="ds7" />
-      </div>
-    </Slider>
+    <div className="slider-container">
+      <Slider {...settings}>
+        {images.map((image, index) => (
+          <div key={index}>
+            <div className="image-container">
+              <img src={image} alt={`Image ${index + 1}`} />
+            </div>
+          </div>
+        ))}
+      </Slider>
+    </div>
   );
 }

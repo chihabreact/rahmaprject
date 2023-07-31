@@ -3,7 +3,7 @@ import "./dashboard-products.styles.css"
 import { useNavigate } from "react-router-dom"
 
 import Button from "@mui/material/Button"
-import ProductListDashboard from "../../components/product-list-dashboard/product-list-dashboard.component"
+import ProductListDashboard from "../product-list-dashboard/product-list-dashboard.component"
 
 const DashboardProducts = () => {
   const navigate = useNavigate();

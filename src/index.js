@@ -7,27 +7,35 @@ import reportWebVitals from "./reportWebVitals";
 
 import Home from "./routes/home/home.component";
 import Dashboard from "./routes/dashboard/dashboard.component";
+import DashboardProducts from "./components/dashboard-products/dashboard-products.component";
+import DashboardForm from "./components/dashboard-form/dashboard-form.component";
 import Login from "./routes/Login/Login";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
-  },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/dashboard",
     children: [
       {
         path: "",
-        element: <Dashboard />,
+        element: <Home />,
       },
       {
-        path: ":page",
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "dashboard",
         element: <Dashboard />,
+        children: [
+          {
+            path: "products",
+            element: <DashboardProducts />,
+          },
+          {
+            path: "form",
+            element: <DashboardForm />,
+          }
+        ],
       }
     ]
   }

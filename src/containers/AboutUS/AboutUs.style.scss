@@ -1,6 +1,6 @@
 .text__container{
     display: flex;
-    
+    flex-basis: 1 1;
     justify-content: space-between;
     align-items: center;
     margin: 4rem 0;
@@ -10,6 +10,10 @@
         span{
             color: #d6ca03;
         }
+    }
+    .text__container__right{
+        padding: 2rem;
+        width: 100%;
     }
         
 }

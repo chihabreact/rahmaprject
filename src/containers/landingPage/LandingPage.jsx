@@ -2,6 +2,7 @@ import { Button, Typography } from "@mui/material";
 import React from "react";
 import Cta from "../../components/cta/Cta";
 import "./LandingPage.style.css";
+import "..//..//typographyStyles.scss";
 import DS7 from "../../assets/DS7.jpg";
 import Slide from "../../components/SimpleSlider/Slide";
 const LandingPage = () => {

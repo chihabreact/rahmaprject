@@ -19,22 +19,32 @@ import {
   Products,
   // Reviews
 } from "../../containers";
-
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import NavigationBar from "../../components/NavigationBar/navigation-bar.component";
 import { Container } from "@mui/material";
 
 const Home = () => {
+  const theme = createTheme({
+    typography: {
+      h2: {
+        fontFamily: "Lato, sans-serif", // Use Lato as the font family for h2
+      },
+    },
+  });
+
   return (
-    <div>
-      <Container>
-        <NavigationBar></NavigationBar>
-        <LandingPage></LandingPage>
-        <AboutUS></AboutUS>
-        <Products></Products>
-        <OurClinets></OurClinets>
-        <ContactUS></ContactUS>
-        <Footer></Footer>
-      </Container>
+    <div className="App">
+      <ThemeProvider theme={theme}>
+        <Container>
+          <NavigationBar></NavigationBar>
+          <LandingPage></LandingPage>
+          <AboutUS></AboutUS>
+          <Products></Products>
+          <OurClinets></OurClinets>
+          <ContactUS></ContactUS>
+          <Footer></Footer>
+        </Container>
+      </ThemeProvider>
     </div>
   );
 };

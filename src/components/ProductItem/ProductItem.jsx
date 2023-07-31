@@ -12,7 +12,7 @@ const ProductItem = ({ product }) => {
   };
 
   return (
-    <div className="cards_item">
+    <div className="cards_container">
       <div className="card">
         <div className="card_image">
           <img src={img} alt="" />
@@ -21,19 +21,12 @@ const ProductItem = ({ product }) => {
           <Typography variant="h2" color="white">
             {name}
           </Typography>
-          <p className="card_text">
-            Demo of pixel perfect pure CSS simple responsive card grid layout
-          </p>
           <button className="btn card_btn" onClick={GoToProducts}>
             Read More
           </button>
         </div>
       </div>
     </div>
-    // <div className="Item__container">
-    //   <img src={img} alt="" />
-    //   <Typography>{name}</Typography>
-    // </div>
   );
 };
 

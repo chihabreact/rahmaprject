@@ -12,6 +12,10 @@
     object-fit: contain;
 }
 
+.navbar div img:hover {
+    cursor: pointer;
+}
+
 .links_logo{
     height: 100%;
     display: flex;
@@ -36,9 +40,8 @@
     position: relative;
     cursor: pointer ;
     font-family: 'Roboto', sans-serif;
-    
-
 }
+
 .navbar-links p::after{
     content: "";
     position: absolute;
@@ -58,4 +61,21 @@
 
 .hide-nav-link p{
     display: none;
+}
+
+@media (max-width: 515px) {
+    .links_logo h6{
+        display: none;
+    }
+
+}
+
+@media (max-width: 350px) {
+    .navbar {
+        justify-content: center;
+    }
+
+    .navbar button {
+        display: none;
+    }
 }

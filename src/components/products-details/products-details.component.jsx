@@ -1,4 +1,4 @@
-import "./products-detailss.styles.css"
+import "./products-details.styles.css"
 
 import { Typography, Button } from "@mui/material"
 import CheckIcon from '@mui/icons-material/Check';
@@ -6,7 +6,6 @@ import StoreIcon from '@mui/icons-material/Store';
 
 import NavigationBar from "../NavigationBar/navigation-bar.component"
 
-import logo from "../../assets/landcruiser.jpg"
 import item3 from "../../assets/item3.jpg"
 import { useNavigate } from "react-router-dom";
 

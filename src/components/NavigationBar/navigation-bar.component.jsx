@@ -6,12 +6,18 @@ import { Typography } from "@mui/material";
 import { useNavigate } from "react-router";
 
 const NavigationBar = ({ className="" }) => {
+  const navigate = useNavigate();
+
+  const onImageClickHandler = () => {
+    navigate("/");
+  }
+
   return (
     <div className="navbar">
       <div className="links_logo">
-        <img src={logo} alt="logo"></img>
+        <img className="logo-image" src={logo} alt="logo" onClick={() => onImageClickHandler()}></img>
         <Typography variant="h6" style={{whiteSpace: "nowrap"}}>ERRAHMA GROUP</Typography>
-        <span></span>
+        {/* <span></span> */}
       </div>
       <div className={`navbar-links ${className}`}>
         <p>our services</p>

@@ -1,10 +1,12 @@
 .product-details-container {
     margin: 0px 48px;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .product-details {
-    height: 78%;
+    height: 80%;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -19,28 +21,48 @@
 .images-container {
     height: 100%;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;  
-    /* flex-grow: unset; */
+    display: grid;
+    grid-template-rows: 80% 20%;
+    gap: 5%;
+    /* flex-direction: column;
+    gap: 10px;   */
 }
 
 .secondary-images-container {
     width: 100%;
+    padding-bottom: 10px;
     display: flex;
     justify-content: space-between;
-} 
+    gap: 10%;
+    overflow: auto;
+    /* overflow: hidden; */
+}
+
+.secondary-images-container::-webkit-scrollbar {
+    margin: 10px;
+    width: 5px;
+}
+
+.secondary-images-container::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.2); 
+    border-radius: 10px;
+}
+
+.secondary-images-container::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
 
 .main-image {
     height: 100%;
     width: 100%;
-    object-fit: cover;
+    object-fit: initial;
 }
 
 .secondary-image {
     height: 100%;
-    width: 28%;
-    object-fit: cover;
+    width: 100%;
+    object-fit: initial;
 }
 
 .main-image, .secondary-image {
@@ -50,7 +72,7 @@
 .secondary-image:hover {
     cursor: pointer;
     transition: .25s;
-    opacity: .5;
+    opacity: .7;
 }
 
 .product-name {
@@ -66,4 +88,15 @@
     width: 50%;
     height: 2px; 
     background: linear-gradient(to right, #1D2937 50%, transparent 50%);
+}
+
+@media (max-width: 700px) {
+    .product-details-container {
+        justify-content: space-between;
+        height: auto;
+    }
+
+    .product-details {
+        flex-direction: column;
+    }
 }

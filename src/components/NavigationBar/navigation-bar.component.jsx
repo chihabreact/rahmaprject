@@ -5,15 +5,15 @@ import "./navigation-bar.styles.css";
 import { Typography } from "@mui/material";
 import { useNavigate } from "react-router";
 
-const NavigationBar = () => {
+const NavigationBar = ({ className="" }) => {
   return (
     <div className="navbar">
       <div className="links_logo">
         <img src={logo} alt="logo"></img>
-        <Typography variant="h6">ERRAHMA GROUP</Typography>
+        <Typography variant="h6" style={{whiteSpace: "nowrap"}}>ERRAHMA GROUP</Typography>
         <span></span>
       </div>
-      <div className="navbar-links">
+      <div className={`navbar-links ${className}`}>
         <p>our services</p>
         <p>who are we</p>
       </div>

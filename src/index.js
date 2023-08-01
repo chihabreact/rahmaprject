@@ -11,6 +11,7 @@ import DashboardProducts from "./components/dashboard-products/dashboard-product
 import DashboardForm from "./components/dashboard-form/dashboard-form.component";
 import Login from "./routes/Login/Login";
 import ProductsPage from "./routes/Products/ProductsPage";
+import ProductsDetails from "./components/products-details/products-details.component";
 
 const router = createBrowserRouter([
   {
@@ -25,8 +26,17 @@ const router = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: "/Products",
-        element: <ProductsPage />,
+        path: "Products",
+        children: [
+          {
+            path: "",
+            element: <ProductsPage />,
+          },
+          {
+            path: ":id",
+            element: <ProductsDetails />,
+          }
+        ]
       },
       {
         path: "dashboard",

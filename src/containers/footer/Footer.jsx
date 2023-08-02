@@ -6,22 +6,23 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 
 const Footer = () => {
   return (
-    <Stack alignItems="center">
-      <Typography variant="h2"> follow us on social media</Typography>
+    <Stack alignItems="center" className="footer__container">
+      <Typography variant="h2" paddingY="2rem">
+        Follow us on social media
+      </Typography>
       <Typography variant="h6" color="grey" padding={2}>
         Stay up-to-date with our latest news, promotions, and equipment
         offerings by following us on social media!
       </Typography>
-      <Stack direction="row">
+      <div className="social__icons">
         <FacebookOutlinedIcon
-          sx={{ fontSize: "80px", color: "#d6ca03" }}
-        ></FacebookOutlinedIcon>
-        <InstagramIcon
-          sx={{ fontSize: "80px", color: "black	" }}
-        ></InstagramIcon>
-      </Stack>
+          className="facebook__icon"
+          sx={{ color: "#d6ca03" }}
+        />
+        <InstagramIcon className="instagram__icon" sx={{ color: "black" }} />
+      </div>
       <Typography>
-        Copyright © 2023 errahma group | All Rights Reserved
+        Copyright © 2023 Errahma Group | All Rights Reserved
       </Typography>
     </Stack>
   );

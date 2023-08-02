@@ -36,13 +36,13 @@
     margin-left: 10px ;
     display: inline-block;
     font-size: 18px;
-    letter-spacing: 0.5px ;
+    letter-spacing: 0.5px;
     position: relative;
-    cursor: pointer ;
+    cursor: pointer;
     font-family: 'Roboto', sans-serif;
 }
-
-.navbar-links p::after{
+  
+.navbar-links p::after {
     content: "";
     position: absolute;
     bottom: -5px;
@@ -54,8 +54,8 @@
     transition-timing-function: ease-in-out;
     transform: scale(1);
 }
-
-.navbar-links p:hover:after{
+  
+.navbar-links p:hover::after {
     transform: scale(0);
 }
 
@@ -79,3 +79,93 @@
         display: none;
     }
 }
+////////////////////////////////////////////////////////////////
+  
+  /* Media query for screens 768px and smaller */
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column; /* Change the layout to vertical on small screens */
+      align-items: center;
+    }
+  
+    .navbar-links {
+      display: none; /* Hide the links by default on small screens */
+      flex-direction: column; /* Change the layout to vertical on small screens */
+      align-items: center;
+      margin-top: 1rem; /* Add margin to separate links from the logo */
+    }
+  
+    .links_logo {
+      margin-bottom: 1rem; /* Add margin to separate logo from the links */
+    }
+  
+    /* Show the dropdown menu when the mobile menu button is clicked */
+    .show-menu .navbar-links {
+      display: flex;
+    }
+  }
+  /* Add styles for the menu button */
+.menu-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    cursor: pointer;
+  }
+  
+  .menu-line {
+    width: 100%;
+    height: 3px;
+    background-color: #333;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  /* Rotate the menu button lines when the menu is open */
+  .show-menu .line1 {
+    transform: rotate(-45deg) translate(-4px, 5px);
+  }
+  
+  .show-menu .line2 {
+    opacity: 0;
+  }
+  
+  .show-menu .line3 {
+    transform: rotate(45deg) translate(-4px, -5px);
+  }
+  /* Add styles for the menu button */
+.menu-button {
+    display: none; /* Initially hide the button */
+  }
+  
+  @media (max-width: 768px) {
+    /* Show the button only on screens with a maximum width of 768px (mobile view) */
+    .menu-button {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 24px;
+      cursor: pointer;
+    }
+  
+    .menu-line {
+      width: 100%;
+      height: 3px;
+      background-color: #333;
+      transition: transform 0.3s ease-in-out;
+    }
+  
+    /* Rotate the menu button lines when the menu is open */
+    .show-menu .line1 {
+      transform: rotate(-45deg) translate(-4px, 5px);
+    }
+  
+    .show-menu .line2 {
+      opacity: 0;
+    }
+  
+    .show-menu .line3 {
+      transform: rotate(45deg) translate(-4px, -5px);
+    }
+  }

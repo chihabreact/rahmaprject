@@ -7,8 +7,7 @@ const Cta = () => {
     <Button
       color="primary"
       sx={{
-        float: "right",
-        
+        marginRight: "1rem",
         borderRadius: "20px", // Set your desired border radius value here
         // Add any other custom styles here if needed
       }}

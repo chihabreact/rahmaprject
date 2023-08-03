@@ -21,7 +21,6 @@ body {
 .container__left {
   margin-top: auto;
   margin-bottom: auto;
-  padding-right: 6rem;
   text-align: center; /* Center the text in the left container by default */
 }
 

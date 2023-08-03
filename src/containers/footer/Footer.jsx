@@ -7,7 +7,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 const Footer = () => {
   return (
     <Stack alignItems="center" className="footer__container">
-      <Typography variant="h2" paddingY="2rem">
+      <Typography variant="h2" paddingY="2rem" textAlign="center">
         Follow us on social media
       </Typography>
       <Typography variant="h6" color="grey" padding={2}>

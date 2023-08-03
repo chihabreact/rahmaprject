@@ -26,7 +26,7 @@ const ProductsPage = () => {
     },
     typography: {
       body1: {
-        fontSize: "1.5rem",
+        fontSize: "1.4rem",
       },
     },
   });

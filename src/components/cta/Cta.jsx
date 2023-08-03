@@ -1,6 +1,6 @@
 import { Button, ButtonBase, Stack } from "@mui/material";
 
-import "./Cta.style.css"
+import "./Cta.style.css";
 
 const Cta = () => {
   return (

@@ -10,17 +10,13 @@
     }
 }
 
-
-
 .categoires__list .categories__list__item{
-
-
     display: inline-block;
-   
     letter-spacing: 0.5px ;
     position: relative;
     cursor: pointer ;
 }
+
 .categoires__list .categories__list__item::after{
     content: "";
     position: absolute;

@@ -9,7 +9,7 @@ const DashboardProducts = () => {
   const navigate = useNavigate();
 
   const onAddProductHandler = () => {
-    navigate("/dashboard/form");        
+    navigate("/dashboard/add-product");        
   }
 
   return (

@@ -1,24 +1,21 @@
 import { useState } from "react"
 
-import "./dashboard-form.styles.css"
+import "./add-category-dashboard-form.styles.css"
 
 import Input from "../input/input.component"
-import TextArea from "../textarea/textarea.component"
 
 import Button from "@mui/material/Button"
 import { useNavigate } from "react-router-dom"
 
 const defaultFormValues = {
-    name: "",
-    description: "",
-    price: "",
+    title: "",
     image: ""
 }
 
-const DashboardForm = () => {
+const AddCategoryDashboardForm = () => {
 
   const [formFields, setFormFields] = useState(defaultFormValues);
-  const { name, description, price, image } = formFields; 
+  const { title, image } = formFields; 
 
   const navigate = useNavigate();
 
@@ -45,35 +42,17 @@ const DashboardForm = () => {
             <div className="top-input-container">
                 <Input
                     className="dashboard-input-container"
-                    label="Name*"
-                    name="name"
+                    label="Title*"
+                    name="title"
                     type="text"
-                    value={name}
+                    value={title}
                     placeHolder="Name"
                     required
                     onChange={(event) => onChangeHandler(event)}
                 />
-                <Input 
-                    className="dashboard-input-container"
-                    label="Price*"
-                    name="price"
-                    type="number"
-                    value={price}
-                    placeHolder="Price"
-                    required
-                    onChange={(event) => onChangeHandler(event)}
-                />
             </div>
-            <TextArea 
-                label="Description*"
-                name="description"
-                value={description}
-                placeholder="Description"
-                required
-                onChange={(event) => onChangeHandler(event)}
-            />
             <Input 
-                label="Image*"
+                label="Image1*"
                 name="image"
                 type="file"
                 value={image}
@@ -83,7 +62,7 @@ const DashboardForm = () => {
             />
             <div className="dashboard-form-button-container">
                 <Button variant="contained" style={{backgroundColor: "#00B300"}} className="add-button" onClick={() => onAddProductHandler()}>
-                    Add Product
+                    Add Category
                 </Button>
                 <Button variant="contained" style={{backgroundColor: "white", color: "#00B300", border: "1px solid #00B300"}} className="add-button" onClick={() => onCancelHandler()}>
                     Cancel
@@ -94,4 +73,4 @@ const DashboardForm = () => {
   )
 }
 
-export default DashboardForm
+export default AddCategoryDashboardForm

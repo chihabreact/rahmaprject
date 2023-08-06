@@ -63,17 +63,12 @@
 }
 
 @media (max-width: 450px) {
-    /* .header-container {
-        flex-direction: column;
-        gap: 20px;
-    } */
-    
     .left-section-header, .right-section-header {
         width: 100%;
     }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 480px) {
     .nav-bar-right {
         display: none;
     }
@@ -82,9 +77,15 @@
         width: 100%;
         justify-content: space-between;
     }
-} 
+}
 
-@media (max-width: 260px) {
+@media (max-width: 310px) {
+    .add-product {
+        display: none;
+    }
+}
+
+@media (max-width: 636px) {
     .logo-image-dashboard-container {
         display: none;
     }

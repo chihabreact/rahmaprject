@@ -11,14 +11,13 @@ import { useNavigate } from "react-router-dom"
 const defaultFormValues = {
     name: "",
     description: "",
-    price: "",
     image: ""
 }
 
 const DashboardForm = () => {
 
   const [formFields, setFormFields] = useState(defaultFormValues);
-  const { name, description, price, image } = formFields; 
+  const { name, description, image } = formFields; 
 
   const navigate = useNavigate();
 

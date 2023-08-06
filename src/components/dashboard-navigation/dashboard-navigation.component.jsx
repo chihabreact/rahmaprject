@@ -21,7 +21,7 @@ const DashboardNavigation = ({ page }) => {
                         <Link to="/dashboard/products" className={`nav-link ${page === "products" ? "colored-nav-bar" : ""}`}>
                             <div>Products</div>
                         </Link>
-                        <Link to="/dashboard/add-product" className={`nav-link ${page === "add-product" ? "colored-nav-bar" : ""}`}>
+                        <Link to="/dashboard/add-product" className={`nav-link ${page === "add-product" ? "colored-nav-bar" : ""} add-product`}>
                             <div>Add Product</div>
                         </Link>
                         <Link to="/dashboard/add-category" className={`nav-link ${page === "add-category" ? "colored-nav-bar" : ""}`}>

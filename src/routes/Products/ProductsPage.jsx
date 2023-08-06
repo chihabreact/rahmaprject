@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./ProductsPage.style.scss";
 import { Container, Stack } from "@mui/system";
 import { Button, Typography } from "@mui/material";

@@ -3,7 +3,6 @@ import Cta from "../cta/Cta";
 import logo from "../../assets/logo.jpg";
 import "./navigation-bar.styles.css";
 import { Typography } from "@mui/material";
-import { useNavigate } from "react-router";
 
 const NavigationBar = () => {
   return (

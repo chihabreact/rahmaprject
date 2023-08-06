@@ -1,23 +1,21 @@
 import { useState } from "react"
 
-import "./dashboard-form.styles.css"
+import "./add-category-dashboard-form.styles.css"
 
 import Input from "../input/input.component"
-import TextArea from "../textarea/textarea.component"
 
 import Button from "@mui/material/Button"
 import { useNavigate } from "react-router-dom"
 
 const defaultFormValues = {
-    name: "",
-    description: "",
+    title: "",
     image: ""
 }
 
-const DashboardForm = () => {
+const AddCategoryDashboardForm = () => {
 
   const [formFields, setFormFields] = useState(defaultFormValues);
-  const { name, description, image } = formFields; 
+  const { title, image } = formFields; 
 
   const navigate = useNavigate();
 
@@ -47,20 +45,12 @@ const DashboardForm = () => {
                     label="Title*"
                     name="title"
                     type="text"
-                    value={name}
+                    value={title}
                     placeHolder="Name"
                     required
                     onChange={(event) => onChangeHandler(event)}
                 />
             </div>
-            <TextArea 
-                label="Description*"
-                name="description"
-                value={description}
-                placeholder="Description"
-                required
-                onChange={(event) => onChangeHandler(event)}
-            />
             <Input 
                 label="Image1*"
                 name="image"
@@ -70,27 +60,9 @@ const DashboardForm = () => {
                 required
                 onChange={(event) => onChangeHandler(event)}
             />
-            <Input 
-                label="Image2*"
-                name="image"
-                type="file"
-                value={image}
-                placeHolder="Image"
-                required
-                onChange={(event) => onChangeHandler(event)}
-            />
-            <Input 
-                label="Image3*"
-                name="image"
-                type="file"
-                value={image}
-                placeHolder="Image"
-                required
-                onChange={(event) => onChangeHandler(event)}
-            />
             <div className="dashboard-form-button-container">
                 <Button variant="contained" style={{backgroundColor: "#00B300"}} className="add-button" onClick={() => onAddProductHandler()}>
-                    Add Product
+                    Add Category
                 </Button>
                 <Button variant="contained" style={{backgroundColor: "white", color: "#00B300", border: "1px solid #00B300"}} className="add-button" onClick={() => onCancelHandler()}>
                     Cancel
@@ -101,4 +73,4 @@ const DashboardForm = () => {
   )
 }
 
-export default DashboardForm
+export default AddCategoryDashboardForm

@@ -8,7 +8,8 @@ import reportWebVitals from "./reportWebVitals";
 import Home from "./routes/home/home.component";
 import Dashboard from "./routes/dashboard/dashboard.component";
 import DashboardProducts from "./components/dashboard-products/dashboard-products.component";
-import DashboardForm from "./components/dashboard-form/dashboard-form.component";
+import AddProductDashboardForm from "./components/add-product-dashboard-form/add-product-dashboard-form.component";
+import AddCategoryDashboardForm from "./components/add-category-dashboard-form/add-category-dashboard-form.component";
 import Login from "./routes/Login/Login";
 import ProductsPage from "./routes/Products/ProductsPage";
 
@@ -37,8 +38,12 @@ const router = createBrowserRouter([
             element: <DashboardProducts />,
           },
           {
-            path: "form",
-            element: <DashboardForm />,
+            path: "add-product",
+            element: <AddProductDashboardForm />,
+          },
+          {
+            path: "add-category",
+            element: <AddCategoryDashboardForm />,
           }
         ],
       }

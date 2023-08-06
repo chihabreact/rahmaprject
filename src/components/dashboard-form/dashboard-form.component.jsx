@@ -45,21 +45,11 @@ const DashboardForm = () => {
             <div className="top-input-container">
                 <Input
                     className="dashboard-input-container"
-                    label="Name*"
-                    name="name"
+                    label="Title*"
+                    name="title"
                     type="text"
                     value={name}
                     placeHolder="Name"
-                    required
-                    onChange={(event) => onChangeHandler(event)}
-                />
-                <Input 
-                    className="dashboard-input-container"
-                    label="Price*"
-                    name="price"
-                    type="number"
-                    value={price}
-                    placeHolder="Price"
                     required
                     onChange={(event) => onChangeHandler(event)}
                 />
@@ -73,7 +63,25 @@ const DashboardForm = () => {
                 onChange={(event) => onChangeHandler(event)}
             />
             <Input 
-                label="Image*"
+                label="Image1*"
+                name="image"
+                type="file"
+                value={image}
+                placeHolder="Image"
+                required
+                onChange={(event) => onChangeHandler(event)}
+            />
+            <Input 
+                label="Image2*"
+                name="image"
+                type="file"
+                value={image}
+                placeHolder="Image"
+                required
+                onChange={(event) => onChangeHandler(event)}
+            />
+            <Input 
+                label="Image3*"
                 name="image"
                 type="file"
                 value={image}

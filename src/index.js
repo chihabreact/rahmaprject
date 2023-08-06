@@ -12,6 +12,7 @@ import AddProductDashboardForm from "./components/add-product-dashboard-form/add
 import AddCategoryDashboardForm from "./components/add-category-dashboard-form/add-category-dashboard-form.component";
 import Login from "./routes/Login/Login";
 import ProductsPage from "./routes/Products/ProductsPage";
+import ProductsDetails from "./components/products-details/products-details.component";
 
 const router = createBrowserRouter([
   {
@@ -26,8 +27,17 @@ const router = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: "/Products",
-        element: <ProductsPage />,
+        path: "Products",
+        children: [
+          {
+            path: "",
+            element: <ProductsPage />,
+          },
+          {
+            path: ":id",
+            element: <ProductsDetails />,
+          }
+        ]
       },
       {
         path: "dashboard",

@@ -1,6 +1,9 @@
 import React from "react";
 import { Button } from "@mui/material";
 
+
+import "./Cta.style.css";
+
 const Cta = () => {
   return (
     <Button
@@ -12,6 +15,7 @@ const Cta = () => {
       }}
       variant="outlined"
       size="large"
+      className="cta"
     >
       GET IN TOUCH
     </Button>

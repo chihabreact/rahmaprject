@@ -1,18 +1,22 @@
-import React from "react";
 import Cta from "../cta/Cta";
 import logo from "../../assets/logo.jpg";
 import "./navigation-bar.styles.css";
 import { Typography } from "@mui/material";
 
-const NavigationBar = () => {
+const NavigationBar = ({ className="" }) => {
+  const navigate = useNavigate();
+  
+  const onImageClickHandler = () => {
+    navigate("/");
+  }
+
   return (
-    <div className="navbar">
+    <div className={`navbar`}>
       <div className="links_logo">
-        <img src={logo} alt="logo"></img>
-        <Typography variant="h6">ERRAHMA GROUP</Typography>
-        <span></span>
+        <img className="logo-image" src={logo} alt="logo" onClick={() => onImageClickHandler()}></img>
+        <Typography variant="h6" style={{whiteSpace: "nowrap"}}>ERRAHMA GROUP</Typography>
       </div>
-      <div className="navbar-links">
+      <div className={`navbar-links ${className}`}>
         <p>our services</p>
         <p>who are we</p>
       </div>

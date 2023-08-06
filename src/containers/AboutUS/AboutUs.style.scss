@@ -1,32 +1,63 @@
-.text__container{
+/* AboutUs.style.scss */
+
+.text__container {
     display: flex;
-    
-    justify-content: space-between;
+    flex-direction: column; /* Stack content vertically by default */
     align-items: center;
     margin: 4rem 0;
-    .text__container__left{
-        padding: 2rem;
-        width: 100%;
-        span{
-            color: #d6ca03;
-        }
-    }
-    .text__container__right{
-        padding: 2rem;
-        width: 100%;
-    }
-}
-.text__container.--border{
+  }
+  
+  
+  .text__container__left {
+    
+    padding: 2rem;
+    width: 100%;
+    text-align: center; /* Center the text in the left container by default */
+  }
+  
+  .text__container__left span {
+    color: #d6ca03;
+  }
+  
+  .text__container__right {
+    padding: 2rem;
+    width: 100%;
+  }
+  
+  .text__container.--border {
     padding: 4rem 0;
-    border-top:1px black solid ;
-    border-bottom:1px black solid ;
-    .text__container__left{
-        align-self: flex-start;
-        img{
-            margin: 4rem 0;
-            width: 500px;
-            filter: grayscale(100%);
-        }
+    border-top: 1px black solid;
+    border-bottom: 1px black solid;
+  }
+  
+  .text__container.--border .text__container__left {
+    align-self: flex-start; /* Center the left container in the bordered container */
+    max-width: 500px; /* Set a maximum width for the left container */
+  }
+  
+  .text__container.--border .text__container__left img {
+    margin: 2rem 0;
+    width: 100%; /* Make the image take the full width of the left container */
+    max-width: 500px; /* Set a maximum width for the image */
+    filter: grayscale(100%);
+  }
+  
+  /* Responsive Styles */
+  @media (min-width: 768px) {
+    /* When the screen size is 768px or larger (tablet and desktop) */
+    .text__container {
+      flex-direction: row;
+      align-items: stretch;
     }
-}
-
+  
+    .text__container__left,
+    .text__container__right {
+      align-self: flex-start;
+      width: 50%;
+    }
+  
+    .text__container.--border {
+      align-items: center;
+    }
+  }
+  

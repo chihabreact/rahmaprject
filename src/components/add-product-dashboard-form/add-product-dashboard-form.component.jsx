@@ -56,7 +56,7 @@ const AddProductDashboardForm = () => {
                     name="title"
                     type="text"
                     value={title}
-                    placeHolder="Name"
+                    placeHolder="Title"
                     required
                     onChange={(event) => onChangeHandler(event)}
                 />

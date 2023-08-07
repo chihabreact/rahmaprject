@@ -13,36 +13,6 @@ import TableRow from '@mui/material/TableRow';
 import TablePagination from '@mui/material/TablePagination';
 import Paper from '@mui/material/Paper';
 
-import photo from "../../assets/landcruiser.jpg"
-
-function createData(
-    name,
-    calories,
-    fat,
-    carbs,
-    protein
-  ) {
-    return { name, calories, fat, carbs, protein };
-  }
-
-const rows = [
-    createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-    createData('Eclair', 262, 16.0, 24, 6.0),
-    createData('Cupcake', 305, 3.7, 67, 4.3),
-    createData('Gingerbread', 356, 16.0, 49, 3.9),
-    createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-    createData('Eclair', 262, 16.0, 24, 6.0),
-    createData('Cupcake', 305, 3.7, 67, 4.3),
-    createData('Gingerbread', 356, 16.0, 49, 3.9),
-    createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-    createData('Eclair', 262, 16.0, 24, 6.0),
-    createData('Cupcake', 305, 3.7, 67, 4.3),
-    createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
-
 const API_URL = "http://localhost:1337"
 
 const ProductListDashboard = () => {
@@ -86,35 +56,9 @@ const ProductListDashboard = () => {
                 </TableRow>
           </TableHead>
           <TableBody>
-            {/* {rows
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((row) => {
-                return (
-                    <TableRow
-                        hover
-                        role="checkbox"
-                        key={row.name}
-                        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                    >
-                            <TableCell sx={{ padding: 1 }} align="center" component="th" scope="row">
-                                <img className="product-image" src={photo} alt="logo"/>
-                            </TableCell>
-                            <TableCell sx={{ padding: 1 }} align="center">{row.calories}</TableCell>
-                            <TableCell sx={{ padding: 1 }} align="center">{row.fat}</TableCell>
-                            <TableCell sx={{ padding: 1 }} align="center">{row.carbs}</TableCell>
-                            <TableCell sx={{ padding: 1 }} align="center">
-                               <IconButton aria-label="delete" size="large">
-                                <DeleteIcon fontSize="inherit" className="delete-icon" />
-                            </IconButton>
-                         </TableCell>
-                    </TableRow>
-                );
-              })} */
-              products
+            {products
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((product) => {
-                console.log(products)
-                console.log(product);
                 return (
                   <TableRow
                       hover
@@ -127,23 +71,22 @@ const ProductListDashboard = () => {
                           </TableCell>
                           <TableCell sx={{ padding: 1 }} align="center">{product.attributes.title}</TableCell>
                           <TableCell sx={{ padding: 1 }} align="center">{product.attributes.description}</TableCell>
-                          {/* <TableCell sx={{ padding: 1 }} align="center">{row.carbs}</TableCell> */}
                           <TableCell sx={{ padding: 1 }} align="center">
-                             <IconButton aria-label="delete" size="large">
+                            <IconButton aria-label="delete" size="large">
                               <DeleteIcon fontSize="inherit" className="delete-icon" />
-                          </IconButton>
-                       </TableCell>
+                            </IconButton>
+                          </TableCell>
                   </TableRow>
-              );
+                );
               })
-              }
+            }
           </TableBody>
         </Table>
       </TableContainer>
       <TablePagination
         rowsPerPageOptions={[2, 4, 10]}
         component="div"
-        count={rows.length}
+        count={products.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}

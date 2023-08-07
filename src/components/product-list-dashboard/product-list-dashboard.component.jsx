@@ -112,21 +112,21 @@ const ProductListDashboard = () => {
               })} */
               products
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((row) => {
+              .map((product) => {
                 console.log(products)
-                console.log(row);
+                console.log(product);
                 return (
                   <TableRow
                       hover
                       role="checkbox"
-                      key={row.attributes.title}
+                      key={product.attributes.title}
                       sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                   >
                           <TableCell sx={{ padding: 1 }} align="center" component="th" scope="row">
-                              <img className="product-image" src={API_URL + row.attributes.image1.data[0].attributes.formats.small.url} alt="logo"/>
+                              <img className="product-image" src={API_URL + product.attributes.image1.data[0].attributes.formats.small.url} alt="logo"/>
                           </TableCell>
-                          <TableCell sx={{ padding: 1 }} align="center">{row.attributes.title}</TableCell>
-                          <TableCell sx={{ padding: 1 }} align="center">{row.attributes.description}</TableCell>
+                          <TableCell sx={{ padding: 1 }} align="center">{product.attributes.title}</TableCell>
+                          <TableCell sx={{ padding: 1 }} align="center">{product.attributes.description}</TableCell>
                           {/* <TableCell sx={{ padding: 1 }} align="center">{row.carbs}</TableCell> */}
                           <TableCell sx={{ padding: 1 }} align="center">
                              <IconButton aria-label="delete" size="large">

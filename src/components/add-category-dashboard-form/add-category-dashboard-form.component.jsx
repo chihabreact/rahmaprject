@@ -52,7 +52,7 @@ const AddCategoryDashboardForm = () => {
                 />
             </div>
             <Input 
-                label="Image1*"
+                label="Image*"
                 name="image"
                 type="file"
                 value={image}

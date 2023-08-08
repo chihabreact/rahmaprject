@@ -4,13 +4,13 @@ import Input from "../input/input.component";
 import Button from "../button/button.component";
 
 const defaultFormFields = {
-    email: "",
+    username: "",
     password: ""
 }
 
 const SignInForm = () => {
     const [formFields, setFormFields] = useState(defaultFormFields);
-    const { email, password } = formFields;
+    const { username, password } = formFields;
 
     const onSubmitHandler = async (event) => {
         event.preventDefault();
@@ -40,12 +40,12 @@ const SignInForm = () => {
     return (
         <div>
             <Input 
-                label="Email *" 
+                label="Username *" 
                 required 
-                type="email" 
-                name="email" 
-                value={email} 
-                placeHolder="example@mail.com" 
+                type="text" 
+                name="username" 
+                value={username} 
+                placeHolder="John Doe" 
                 onChange={onChangeHandler} 
                 className="sign-in-form-input-container"
             />

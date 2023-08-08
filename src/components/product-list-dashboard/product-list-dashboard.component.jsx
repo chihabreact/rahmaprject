@@ -13,7 +13,7 @@ import TableRow from '@mui/material/TableRow';
 import TablePagination from '@mui/material/TablePagination';
 import Paper from '@mui/material/Paper';
 
-const API_URL = "http://localhost:1337"
+const API_URL = "http://localhost:1337";
 
 const ProductListDashboard = () => {
   const [page, setPage] = useState(0);

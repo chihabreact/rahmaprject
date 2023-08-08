@@ -1,7 +1,6 @@
 import "./input.styles.css"
 
 const Input = ({ label, name, type, value, placeHolder, required, onChange, className = "" }) => {
-  console.log({ label, name, type, value, placeHolder, required, onChange })
   return (
     <div className={className}>
         <label htmlFor={label}>{label}</label>

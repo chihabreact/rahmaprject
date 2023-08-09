@@ -8,9 +8,14 @@ import TextArea from "../textarea/textarea.component"
 import Button from "@mui/material/Button"
 import { useNavigate } from "react-router-dom"
 
-const defaultFormValues = {
+import { addProduct } from "../../utils/request"
+
+const defaultTextFormFields = {
     title: "",
-    description: "",
+    description: ""
+}
+
+const defaultImagesFormFields = {
     image1: "",
     image2: "",
     image3: ""
@@ -18,24 +23,44 @@ const defaultFormValues = {
 
 const AddProductDashboardForm = () => {
 
-  const [formFields, setFormFields] = useState(defaultFormValues);
+  const [textFormFields, setTextFormFields] = useState(defaultTextFormFields);
+  const [imagesFormFields, setImagesFormFields] = useState(defaultImagesFormFields);
+
   const { 
     title, 
-    description, 
+    description
+  } = textFormFields; 
+
+  const {
     image1, 
     image2, 
     image3 
-  } = formFields; 
+  } = imagesFormFields;
 
   const navigate = useNavigate();
 
   const onChangeHandler = (event) => {
     const { name, value } = event.target;
-    setFormFields({...formFields, [name]: value });
+    setTextFormFields({...textFormFields, [name]: value });
   }
 
-  const onAddProductHandler = () => {
-    navigate("/dashboard/products");
+  const onImageChangeHandler = (event) => {
+    const selectedImage = event.target.files[0];
+    console.log(event.target.name);
+    console.log(event.target.files[0]);
+    setImagesFormFields({...imagesFormFields, [event.target.name]: selectedImage});
+  }
+
+  const onAddProductHandler = async () => {
+    const productResponse = await addProduct(title, description, image1, image2, image3);
+
+    if (!productResponse) {
+      throw new Error("something went wrong");
+    } else {
+      setTextFormFields(defaultTextFormFields);
+      setImagesFormFields(defaultImagesFormFields);
+    }
+    // navigate("/dashboard/products");
   }
 
   const onCancelHandler = () => {
@@ -73,28 +98,28 @@ const AddProductDashboardForm = () => {
                 label="Image1*"
                 name="image1"
                 type="file"
-                value={image1}
+                // value={image1}
                 placeHolder="Image"
                 required
-                onChange={(event) => onChangeHandler(event)}
+                onChange={(event) => onImageChangeHandler(event)}
             />
             <Input 
                 label="Image2*"
                 name="image2"
                 type="file"
-                value={image2}
+                // value={image2}
                 placeHolder="Image"
                 required
-                onChange={(event) => onChangeHandler(event)}
+                onChange={(event) => onImageChangeHandler(event)}
             />
             <Input 
                 label="Image3*"
                 name="image3"
                 type="file"
-                value={image3}
+                // value={image3}
                 placeHolder="Image"
                 required
-                onChange={(event) => onChangeHandler(event)}
+                onChange={(event) => onImageChangeHandler(event)}
             />
             <div className="dashboard-form-button-container">
                 <Button variant="contained" style={{backgroundColor: "#00B300"}} className="add-button" onClick={() => onAddProductHandler()}>

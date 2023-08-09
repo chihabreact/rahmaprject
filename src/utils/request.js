@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_URL = "http://localhost:1337";
+const API_URL = process.env.REACT_APP_RAHMA_GROUP_API_URL;
 
 const uploadImage = async (image) => {
     const formData = new FormData();
@@ -9,7 +9,7 @@ const uploadImage = async (image) => {
       const imageData = await axios.post(`${API_URL}/api/upload`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
-          'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkxNTE1NDQzLCJleHAiOjE2OTQxMDc0NDN9.R0fmjGqVPLnOytbnagKZpOWr9dJ89Z6sAQ5FbGn3CDE`
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
       });
       const imageId = imageData.data[0].id;
@@ -24,9 +24,7 @@ const getProducts = async () => {
     try {
         const productsRequest = await fetch(`${API_URL}/api/products?populate=*`);
         const productsData = await productsRequest.json();
-        console.log(productsData);
         return productsData.data;
-        // setProducts(productsData.data);
       } catch (err) {
         console.error(err);
         return null;
@@ -38,7 +36,6 @@ const getCategories = async () => {
         const categoriesRequest = await axios.get(`${API_URL}/api/products?populate=*`);
         const categoriesData = await categoriesRequest.json();
         return categoriesData.data;
-        // setProducts(productsData.data);
       } catch (err) {
         console.error(err);
         return null;
@@ -59,10 +56,9 @@ const addCategory = async (title, image) => {
         {
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkxNTE1NDQzLCJleHAiOjE2OTQxMDc0NDN9.R0fmjGqVPLnOytbnagKZpOWr9dJ89Z6sAQ5FbGn3CDE`
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
           }
         });
-        console.log(response);
         return response;
       } catch (err) {
         console.log(err);
@@ -89,10 +85,9 @@ const addProduct = async (title, description, image1, image2, image3) => {
         {
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkxNTE1NDQzLCJleHAiOjE2OTQxMDc0NDN9.R0fmjGqVPLnOytbnagKZpOWr9dJ89Z6sAQ5FbGn3CDE`
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
           }
         });
-        console.log(response);
         return response;
       } catch (err) {
         console.log(err);
@@ -100,10 +95,25 @@ const addProduct = async (title, description, image1, image2, image3) => {
       }
 }
 
+const signIn = async (username, password) => {
+  try {
+    const authResponse = await axios.post(`${API_URL}/api/auth/local`, {
+      identifier: username,
+      password
+    });
+    const token = authResponse.data.jwt;
+    return token;
+  } catch (err) {
+    console.log(err);
+    return null;
+  }
+}
+
 export {
     API_URL,
     getProducts,
     getCategories,
     addProduct,
-    addCategory
+    addCategory,
+    signIn
 }

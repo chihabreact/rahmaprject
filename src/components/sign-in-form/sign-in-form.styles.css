@@ -1,0 +1,10 @@
+.credentials {
+    color: red;
+    text-align: center;
+    font-weight: bolder;
+    display: none;
+}
+
+.wrong-credentials {
+    display: block;
+}

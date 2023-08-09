@@ -12,6 +12,7 @@ import { addCategory } from "../../utils/request";
 const AddCategoryDashboardForm = () => {
   const [title, setTitle] = useState("");
   const [image, setImage] = useState(null);
+  const [categoryFromCredentials, setCategoryFromCredentials] = useState(true);
 
   const navigate = useNavigate();
 
@@ -27,10 +28,15 @@ const AddCategoryDashboardForm = () => {
 
   const onAddCategoryHandler = async (event) => {
     const categoryResponse = await addCategory(title, image);
-    if (!categoryResponse) throw new Error("Something went wrong");
-    setTitle("");
-    setImage(null);
-    // navigate("/dashboard/products");
+    if (!categoryResponse) {
+      setCategoryFromCredentials(false);
+      console.error("Something went wrong");
+    } else {
+      if (!categoryFromCredentials) setCategoryFromCredentials(true);
+      setTitle("");
+      setImage(null);
+      // navigate("/dashboard/products");
+    }
   }
 
   const onCancelHandler = () => {
@@ -43,6 +49,7 @@ const AddCategoryDashboardForm = () => {
             <h3>Product Infomation</h3>
             <p className="header-paragraph">Add new product</p>
         </div>
+        <p className={`add-category-form-credentials ${!categoryFromCredentials && "add-category-form-wrong-credentials"}`}>Wrong Credentials</p>
         <div>
             <div className="top-input-container">
                 <Input

@@ -13,7 +13,10 @@ import TableRow from '@mui/material/TableRow';
 import TablePagination from '@mui/material/TablePagination';
 import Paper from '@mui/material/Paper';
 
-const API_URL = "http://localhost:1337";
+import { 
+  API_URL,
+  getProducts 
+} from "../../utils/request";
 
 const ProductListDashboard = () => {
   const [page, setPage] = useState(0);
@@ -22,13 +25,8 @@ const ProductListDashboard = () => {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      try {
-        const productsRequest = await fetch(`${API_URL}/api/products?populate=*`);
-        const productsData = await productsRequest.json();
-        setProducts(productsData.data);
-      } catch (err) {
-        console.error(err);
-      }
+      const productsData = await getProducts();
+      setProducts(productsData);
     }
     fetchProducts();
   }, []);
@@ -63,7 +61,7 @@ const ProductListDashboard = () => {
                   <TableRow
                       hover
                       role="checkbox"
-                      key={product.attributes.title}
+                      key={product.id}
                       sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                   >
                           <TableCell sx={{ padding: 1 }} align="center" component="th" scope="row">

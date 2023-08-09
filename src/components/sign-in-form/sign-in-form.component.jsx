@@ -1,7 +1,13 @@
 import { useState } from "react"
 
+import "./sign-in-form.styles.css";
+
+import { useNavigate } from "react-router-dom";
+
 import Input from "../input/input.component";
 import Button from "../button/button.component";
+
+import { signIn } from "../../utils/request";
 
 const defaultFormFields = {
     username: "",
@@ -10,25 +16,21 @@ const defaultFormFields = {
 
 const SignInForm = () => {
     const [formFields, setFormFields] = useState(defaultFormFields);
+    const [wrongCredentials, setWrongCredentials] = useState(false);
     const { username, password } = formFields;
+
+    const navigate = useNavigate();
 
     const onSubmitHandler = async (event) => {
         event.preventDefault();
         
-        console.log(process.env);
-        console.log(formFields);
-        try {
-            const userInformationRequest = await fetch(process.env.ERRAHMA_API_AUTH_URL, {
-                method: "POST",
-                headers: {
-                    "content-type": "application/json"
-                },
-                body: JSON.stringify(formFields)
-            });
-            const userInformation = await userInformationRequest.json();
-            console.log(userInformation);
-        } catch (err) {
-            console.error(err);
+        const token = await signIn(username, password);
+        if (token) {
+            if (wrongCredentials) setWrongCredentials(false); 
+            localStorage.setItem("token", token);
+            navigate("/dashboard/products");
+        } else {
+            setWrongCredentials(true);
         }
     }
 
@@ -39,6 +41,7 @@ const SignInForm = () => {
 
     return (
         <div>
+            <p className={`credentials ${wrongCredentials && "wrong-credentials"}`}>wrong credentials</p>
             <Input 
                 label="Username *" 
                 required 

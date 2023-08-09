@@ -25,6 +25,7 @@ const AddProductDashboardForm = () => {
 
   const [textFormFields, setTextFormFields] = useState(defaultTextFormFields);
   const [imagesFormFields, setImagesFormFields] = useState(defaultImagesFormFields);
+  const [productFromCredentials, setProductFromCredentials] = useState(true);
 
   const { 
     title, 
@@ -55,12 +56,14 @@ const AddProductDashboardForm = () => {
     const productResponse = await addProduct(title, description, image1, image2, image3);
 
     if (!productResponse) {
-      throw new Error("something went wrong");
+      setProductFromCredentials(false);
+      console.error("something went wrong");
     } else {
+      if (!productFromCredentials) setProductFromCredentials(true);
       setTextFormFields(defaultTextFormFields);
       setImagesFormFields(defaultImagesFormFields);
+      navigate("/dashboard/products");
     }
-    // navigate("/dashboard/products");
   }
 
   const onCancelHandler = () => {
@@ -73,6 +76,7 @@ const AddProductDashboardForm = () => {
             <h3>Product Infomation</h3>
             <p className="header-paragraph">Add new product</p>
         </div>
+        <p className={`add-product-form-credentials ${!productFromCredentials && ".add-product-form-wrong-credentials"}`}>Wrong Credentials</p>
         <div>
             <div className="top-input-container">
                 <Input

@@ -29,6 +29,17 @@ textarea {
     line-height: 20px;
 }
 
+.add-product-form-credentials {
+    color: red;
+    text-align: center;
+    font-weight: bolder;
+    display: none;
+}
+
+.add-product-form-wrong-credentials {
+    display: block;
+}
+
 @media (max-width: 450px) {
     .dashboard-form-button-container {
         justify-content: space-between;

@@ -30,14 +30,37 @@ textarea {
 }
 
 .add-category-form-credentials {
-    color: red;
     text-align: center;
     font-weight: bolder;
-    display: none;
+    display: block;
+    visibility: hidden;
 }
 
 .add-category-form-wrong-credentials {
-    display: block;
+    visibility: visible;
+    color: red;
+}
+
+.successful-form-submission {
+    visibility: visible;
+    color: #00B300;
+    opacity: 0;
+    animation-name: successfullOperation;
+    animation-duration: 2s;
+}
+
+@keyframes successfullOperation {
+    0% {
+       opacity: 0; 
+    }
+    50% {
+        opacity: 1;
+        color: #00B300;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
 }
 
 @media (max-width: 450px) {

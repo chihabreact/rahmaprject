@@ -45,7 +45,7 @@ const getCategories = async () => {
 const addCategory = async (title, image) => {
     const imageId = await uploadImage(image);
     if (!imageId) return;
-
+  
     try {
         const response = await axios.post(`${API_URL}/api/categories`, {
           "data": {

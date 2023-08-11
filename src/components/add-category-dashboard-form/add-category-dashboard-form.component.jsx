@@ -13,6 +13,7 @@ const AddCategoryDashboardForm = () => {
   const [title, setTitle] = useState("");
   const [image, setImage] = useState(null);
   const [categoryFromCredentials, setCategoryFromCredentials] = useState(true);
+  const [successFormSubmission, setSuccessFormSubmission] = useState(false);
 
   const navigate = useNavigate();
 
@@ -23,6 +24,7 @@ const AddCategoryDashboardForm = () => {
 
   const onImageChangeHandler = (event) => {
     const selectedImage = event.target.files[0];
+    event.target.value = null;
     setImage(selectedImage);
   }
 
@@ -33,9 +35,18 @@ const AddCategoryDashboardForm = () => {
       console.error("Something went wrong");
     } else {
       if (!categoryFromCredentials) setCategoryFromCredentials(true);
+
+      setSuccessFormSubmission(true);
       setTitle("");
       setImage(null);
-      // navigate("/dashboard/products");
+
+      const timeoutId = setTimeout(() => {
+        setSuccessFormSubmission(false);
+      }, 2000);
+    
+      return () => {
+        clearTimeout(timeoutId);
+      };
     }
   }
 
@@ -50,6 +61,7 @@ const AddCategoryDashboardForm = () => {
             <p className="header-paragraph">Add new product</p>
         </div>
         <p className={`add-category-form-credentials ${!categoryFromCredentials && "add-category-form-wrong-credentials"}`}>Wrong Credentials</p>
+        <p className={`add-category-form-credentials ${successFormSubmission && "successful-form-submission"}`}>Category added successfully</p>
         <div>
             <div className="top-input-container">
                 <Input

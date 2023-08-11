@@ -15,7 +15,8 @@ import Paper from '@mui/material/Paper';
 
 import { 
   API_URL,
-  getProducts 
+  getProducts,
+  deleteProduct 
 } from "../../utils/request";
 
 const ProductListDashboard = () => {
@@ -39,6 +40,14 @@ const ProductListDashboard = () => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+
+  const onDeleteProductHandler = async (productId) => {
+    const deleteButtonResponse = await deleteProduct(productId);
+    if (deleteButtonResponse) {
+      const newProductList = products.filter(product => product.id !== productId);
+      setProducts(newProductList);
+    }
+  }
 
   return (
     <Paper sx={{ width: '100%' }}>
@@ -70,7 +79,7 @@ const ProductListDashboard = () => {
                           <TableCell sx={{ padding: 1 }} align="center">{product.attributes.title}</TableCell>
                           <TableCell sx={{ padding: 1 }} align="center">{product.attributes.description}</TableCell>
                           <TableCell sx={{ padding: 1 }} align="center">
-                            <IconButton aria-label="delete" size="large">
+                            <IconButton aria-label="delete" size="large" onClick={() => onDeleteProductHandler(product.id)}>
                               <DeleteIcon fontSize="inherit" className="delete-icon" />
                             </IconButton>
                           </TableCell>

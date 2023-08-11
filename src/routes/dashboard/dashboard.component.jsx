@@ -1,6 +1,6 @@
 import "./dashboard.styles.css"
 
-import { useState, useEffect } from "react";
+import { useState, useLayoutEffect } from "react";
 import { 
     Outlet,
     useLocation
@@ -10,12 +10,18 @@ import DashboardNavigation from "../../components/dashboard-navigation/dashboard
 
 const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   
-  useEffect(() => {
+  useLayoutEffect(() => {
     const token = localStorage.getItem("token");
-    if (!token) window.location.href = "/login";
-    
-    setIsLoading(false);
+
+    if (!token) {
+      window.location.href = "/login";
+    } else {
+      setIsUserLoggedIn(true);
+      setIsLoading(false);
+    }
+
     return;
   }, []);
   
@@ -26,8 +32,14 @@ const Dashboard = () => {
   return (
     <>
       {
-        isLoading ? (
-          <div>Loading...</div>
+        (!isUserLoggedIn && isLoading) ? (
+          <div style={{
+            height: "100vh", 
+            width: "100vw", 
+            display: "flex", 
+            justifyContent: "center", 
+            alignItems: "center"
+          }}>Loading...</div>
         ) : (
           <div className="dashboard-container">
             <DashboardNavigation page={page}/>

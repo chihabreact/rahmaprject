@@ -95,6 +95,20 @@ const addProduct = async (title, description, image1, image2, image3) => {
       }
 }
 
+const deleteProduct = async (productId) => {
+  try {
+    const response = await axios.delete(`${API_URL}/api/products/${productId}`, {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      }
+    });
+    return response;
+  } catch (err) {
+    console.log(err);
+    return null;
+  }
+}
+
 const signIn = async (username, password) => {
   try {
     const authResponse = await axios.post(`${API_URL}/api/auth/local`, {
@@ -115,5 +129,6 @@ export {
     getCategories,
     addProduct,
     addCategory,
+    deleteProduct,
     signIn
 }

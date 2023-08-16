@@ -30,6 +30,7 @@ const AddCategoryDashboardForm = () => {
 
   const onAddCategoryHandler = async (event) => {
     const categoryResponse = await addCategory(title, image);
+    
     if (!categoryResponse) {
       setCategoryFromCredentials(false);
       console.error("Something went wrong");

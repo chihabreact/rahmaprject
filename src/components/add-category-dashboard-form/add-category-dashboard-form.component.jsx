@@ -2,12 +2,18 @@ import { useState } from "react"
 
 import "./add-category-dashboard-form.styles.css"
 
-import Input from "../input/input.component"
-
-import Button from "@mui/material/Button"
 import { useNavigate } from "react-router-dom"
+import { useDispatch } from "react-redux"
 
-import { addCategory } from "../../utils/request";
+import Input from "../input/input.component"
+import Button from "@mui/material/Button"
+
+import { setCategories } from "../../store/categories/categories.action"
+
+import { 
+  addCategory,
+  getCategories
+} from "../../utils/request";
 
 const AddCategoryDashboardForm = () => {
   const [title, setTitle] = useState("");
@@ -16,6 +22,7 @@ const AddCategoryDashboardForm = () => {
   const [successFormSubmission, setSuccessFormSubmission] = useState(false);
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const onTitleChangeHandler = (event) => {
     const { value } = event.target;
@@ -26,6 +33,13 @@ const AddCategoryDashboardForm = () => {
     const selectedImage = event.target.files[0];
     event.target.value = null;
     setImage(selectedImage);
+  }
+
+  const updateCategoriesState = async () => {
+    const categoriesResponse = await getCategories();
+    if (categoriesResponse) {
+      dispatch(setCategories(categoriesResponse));
+    } 
   }
 
   const onAddCategoryHandler = async (event) => {
@@ -40,6 +54,8 @@ const AddCategoryDashboardForm = () => {
       setSuccessFormSubmission(true);
       setTitle("");
       setImage(null);
+
+      await updateCategoriesState();
 
       const timeoutId = setTimeout(() => {
         setSuccessFormSubmission(false);

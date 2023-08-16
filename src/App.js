@@ -7,8 +7,12 @@ import {
     useDispatch, 
 } from "react-redux";
 import { setProducts } from "./store/products/products.action";
+import { setCategories } from "./store/categories/categories.action";
 
-import { getProducts } from "./utils/request";
+import { 
+  getProducts,
+  getCategories 
+} from "./utils/request";
 
 import Home from "./routes/home/home.component";
 import Dashboard from "./routes/dashboard/dashboard.component";
@@ -82,6 +86,18 @@ const App = () => {
         return;
     }, [dispatch]);
 
+    useEffect(() => {
+      const fetchAndSetCategories = async () => {
+        const categoriesData = await getCategories();
+        if (categoriesData) {
+          dispatch(setCategories(categoriesData));
+        }
+      }
+
+      fetchAndSetCategories();
+      return;
+    }, [dispatch]);
+    
     return (
         <RouterProvider router={router} />
     )

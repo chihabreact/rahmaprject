@@ -22,9 +22,8 @@ const uploadImage = async (image) => {
 
 const getProducts = async () => {
     try {
-        const productsRequest = await fetch(`${API_URL}/api/products?populate=*`);
-        const productsData = await productsRequest.json();
-        return productsData.data;
+        const productsData = await axios.get(`${API_URL}/api/products?populate=*`);
+        return productsData.data.data;
       } catch (err) {
         console.error(err);
         return null;
@@ -33,9 +32,8 @@ const getProducts = async () => {
 
 const getCategories = async () => {
     try {
-        const categoriesRequest = await axios.get(`${API_URL}/api/products?populate=*`);
-        const categoriesData = await categoriesRequest.json();
-        return categoriesData.data;
+        const categoriesData = await axios.get(`${API_URL}/api/categories?populate=*`);
+        return categoriesData.data.data;
       } catch (err) {
         console.error(err);
         return null;

@@ -30,7 +30,6 @@ const ProductListDashboard = () => {
   const [rowsPerPage, setRowsPerPage] = useState(4);
   const { products } = useSelector(selectProducts);
 
-  console.log(products);
   const dispatch = useDispatch();
 
   const handleChangePage = (event, newPage) => {

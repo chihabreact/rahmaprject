@@ -1,4 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+
+import { 
+  useDispatch, 
+  useSelector 
+} from "react-redux";
+import { selectProducts } from "../../store/products/products.selector"
+import { setProducts } from "../../store/products/products.action";
 
 import "./product-list-dashboard.styles.css"
 
@@ -15,22 +22,27 @@ import Paper from '@mui/material/Paper';
 
 import { 
   API_URL,
-  getProducts,
+  // getProducts,
   deleteProduct 
 } from "../../utils/request";
 
 const ProductListDashboard = () => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(4);
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      const productsData = await getProducts();
-      setProducts(productsData);
-    }
-    fetchProducts();
-  }, []);
+  // useEffect(() => {
+  //   const fetchProducts = async () => {
+  //     const productsData = await getProducts();
+  //     setProducts(productsData);
+  //   }
+  //   fetchProducts();
+  // }, []);
+
+  const { products } = useSelector(selectProducts);
+
+  console.log(products);
+  const dispatch = useDispatch();
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -45,7 +57,7 @@ const ProductListDashboard = () => {
     const deleteButtonResponse = await deleteProduct(productId);
     if (deleteButtonResponse) {
       const newProductList = products.filter(product => product.id !== productId);
-      setProducts(newProductList);
+      dispatch(setProducts(newProductList));
     }
   }
 

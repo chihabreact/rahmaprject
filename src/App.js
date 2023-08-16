@@ -1,4 +1,14 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { useEffect } from "react";
+import { 
+    createBrowserRouter, 
+    RouterProvider 
+} from "react-router-dom";
+import { 
+    useDispatch, 
+} from "react-redux";
+import { setProducts } from "./store/products/products.action";
+
+import { getProducts } from "./utils/request";
 
 import Home from "./routes/home/home.component";
 import Dashboard from "./routes/dashboard/dashboard.component";
@@ -58,9 +68,23 @@ const router = createBrowserRouter([
 
 
 const App = () => {
-  return (
-    <RouterProvider router={router} />
-  )
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        const fetchAndSetProducts = async () => {
+            const productsData = await getProducts();
+            if (productsData) {
+                dispatch(setProducts(productsData));
+            }
+        }
+        
+        fetchAndSetProducts();
+        return;
+    }, [dispatch]);
+
+    return (
+        <RouterProvider router={router} />
+    )
 }
 
 export default App

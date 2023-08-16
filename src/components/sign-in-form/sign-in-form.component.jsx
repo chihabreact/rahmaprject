@@ -23,7 +23,7 @@ const SignInForm = () => {
     const { username, password } = formFields;
 
     const dispatch = useDispatch();
-    const currentUser = useSelector(selectCurrentUser);
+    const { currentUser } = useSelector(selectCurrentUser);
     const navigate = useNavigate();
 
 
@@ -31,8 +31,9 @@ const SignInForm = () => {
         if (currentUser && localStorage.getItem("token")) {
             navigate("/dashboard/products");
         }
+
         return;
-    }, [currentUser]);
+    }, [currentUser, navigate]);
 
     const onSubmitHandler = async (event) => {
         event.preventDefault();

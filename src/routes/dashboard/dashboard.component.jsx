@@ -1,12 +1,11 @@
 import "./dashboard.styles.css"
 
-import { useState, useLayoutEffect } from "react";
+import { useState, useEffect } from "react";
 import { 
     Outlet,
     useLocation
 } from "react-router-dom";
 import { useSelector } from "react-redux";
-
 import { selectCurrentUser } from "../../store/user/user.selector";
 
 import DashboardNavigation from "../../components/dashboard-navigation/dashboard-navigation.component"
@@ -15,13 +14,14 @@ const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   
-  const currentUser = useSelector(selectCurrentUser);
+  const { currentUser } = useSelector(selectCurrentUser);
 
-  useLayoutEffect(() => {
-    console.log(currentUser);
+  useEffect(() => {
     const token = localStorage.getItem("token");
 
-    if (!token) {
+    console.log(currentUser);
+    if (!currentUser || !token) {
+      localStorage.clear();
       window.location.href = "/login";
     } else {
       setIsUserLoggedIn(true);
@@ -29,7 +29,8 @@ const Dashboard = () => {
     }
 
     return;
-  }, []);
+  }, [currentUser]);
+  
   
   const { pathname } = useLocation();  
   let page = pathname.slice(11);

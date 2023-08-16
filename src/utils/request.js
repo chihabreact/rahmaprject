@@ -115,8 +115,9 @@ const signIn = async (username, password) => {
       identifier: username,
       password
     });
-    const token = authResponse.data.jwt;
-    return token;
+    const data = authResponse.data;
+    // const token = authResponse.data.jwt;
+    return data;
   } catch (err) {
     console.log(err);
     return null;

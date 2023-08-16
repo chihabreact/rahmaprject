@@ -1,0 +1,7 @@
+const PRODUCT_ACTION_TYPES = {
+    GET_PRODUCTS: "GET_PRODUCTS"
+};
+
+export {
+    PRODUCT_ACTION_TYPES
+}

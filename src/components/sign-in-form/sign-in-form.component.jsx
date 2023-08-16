@@ -1,8 +1,11 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { useDispatch, useSelector} from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import "./sign-in-form.styles.css";
 
-import { useNavigate } from "react-router-dom";
+import { selectCurrentUser } from "../../store/user/user.selector";
+import { setCurrentUser } from "../../store/user/user.action";
 
 import Input from "../input/input.component";
 import Button from "../button/button.component";
@@ -19,16 +22,28 @@ const SignInForm = () => {
     const [wrongCredentials, setWrongCredentials] = useState(false);
     const { username, password } = formFields;
 
+    const dispatch = useDispatch();
+    const currentUser = useSelector(selectCurrentUser);
     const navigate = useNavigate();
+
+
+    useEffect(() => {
+        if (currentUser && localStorage.getItem("token")) {
+            navigate("/dashboard/products");
+        }
+        return;
+    }, [currentUser]);
 
     const onSubmitHandler = async (event) => {
         event.preventDefault();
         
-        const token = await signIn(username, password);
-        if (token) {
+        const data = await signIn(username, password);
+        if (data) {
+            const { jwt: token, user } = data;
+
             if (wrongCredentials) setWrongCredentials(false); 
             localStorage.setItem("token", token);
-            navigate("/dashboard/products");
+            dispatch(setCurrentUser(user));
         } else {
             setWrongCredentials(true);
         }

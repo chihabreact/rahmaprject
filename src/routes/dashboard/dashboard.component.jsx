@@ -19,7 +19,6 @@ const Dashboard = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    console.log(currentUser);
     if (!currentUser || !token) {
       localStorage.clear();
       window.location.href = "/login";

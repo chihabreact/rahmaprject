@@ -24,8 +24,8 @@ const SignInForm = () => {
 
     const dispatch = useDispatch();
     const { currentUser } = useSelector(selectCurrentUser);
-    const navigate = useNavigate();
 
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (currentUser && localStorage.getItem("token")) {

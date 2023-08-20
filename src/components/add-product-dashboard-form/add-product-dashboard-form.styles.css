@@ -19,14 +19,19 @@
     margin: 20px 0px;
 }
 
-textarea {
+.dashboard-textarea {
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     outline: none;
     border: 1px solid hsla(0, 0%, 0%, 0.1);
     border-radius: 5px;
-    height: 60px;
+    height: 40px;
     line-height: 20px;
+    resize: none;
+}
+
+select {
+    margin-bottom: 5px;
 }
 
 .add-product-form-credentials {

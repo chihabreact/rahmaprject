@@ -3,12 +3,13 @@ import { useState } from "react"
 import "./add-product-dashboard-form.styles.css"
 
 import Input from "../input/input.component"
-import TextArea from "../textarea/textarea.component"
 
 import Button from "@mui/material/Button"
 import { useNavigate } from "react-router-dom"
 import { useDispatch } from "react-redux"
 
+import { useSelector } from "react-redux"
+import { selectCategories } from "../../store/categories/categories.selector"
 import { setProducts } from "../../store/products/products.action"
 
 import { 
@@ -18,7 +19,8 @@ import {
 
 const defaultTextFormFields = {
     title: "",
-    description: ""
+    description: "",
+    category: ""
 }
 
 const defaultImagesFormFields = {
@@ -34,9 +36,12 @@ const AddProductDashboardForm = () => {
   const [productFromCredentials, setProductFromCredentials] = useState(true);
   const [successFormSubmission, setSuccessFormSubmission] = useState(false);
 
+  const { categories } = useSelector(selectCategories);
+
   const { 
     title, 
-    description
+    description,
+    category
   } = textFormFields; 
 
   const {
@@ -69,9 +74,8 @@ const AddProductDashboardForm = () => {
   }
 
   const onAddProductHandler = async () => {
-    const productResponse = await addProduct(title, description, image1, image2, image3);
+    const productResponse = await addProduct(title, description, category, image1, image2, image3);
 
-    console.log("everything setted correctly");
     if (!productResponse) {
       setProductFromCredentials(false);
       console.error("something went wrong");
@@ -97,7 +101,7 @@ const AddProductDashboardForm = () => {
   const onCancelHandler = () => {
     navigate("/dashboard/products");
   }
-  
+
   return (
     <>
         <div className="header-dashboard-form">
@@ -119,7 +123,9 @@ const AddProductDashboardForm = () => {
                     onChange={(event) => onChangeHandler(event)}
                 />
             </div>
-            <TextArea 
+            <label htmlFor="description">Description:*</label>
+            <textarea
+                className="dashboard-textarea"
                 label="Description*"
                 name="description"
                 value={description}
@@ -127,6 +133,17 @@ const AddProductDashboardForm = () => {
                 required
                 onChange={(event) => onChangeHandler(event)}
             />
+            <label htmlFor="categories">Category:*</label>
+            <select 
+              name="category" 
+              onChange={(event) => onChangeHandler(event)}
+            >
+              {
+                categories.map(({id, attributes}) => (
+                  <option key={id} value={id}>{attributes.title}</option>
+                ))
+              }
+            </select>
             <Input 
                 label="Image1*"
                 name="image1"

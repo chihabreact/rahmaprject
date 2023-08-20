@@ -64,7 +64,7 @@ const addCategory = async (title, image) => {
       }
 }
 
-const addProduct = async (title, description, image1, image2, image3) => {
+const addProduct = async (title, description, category, image1, image2, image3) => {
     if (!image1 || !image2 || !image3) return;
 
     const image1Id = await uploadImage(image1);
@@ -77,6 +77,7 @@ const addProduct = async (title, description, image1, image2, image3) => {
           "data": {
             title,
             description,
+            category,
             image1: image1Id,
             image2: image2Id,
             image3: image3Id

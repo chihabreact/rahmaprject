@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./ProductsPage.style.scss";
 import { Container, Stack } from "@mui/system";
 import { Button, Typography } from "@mui/material";
@@ -54,10 +53,10 @@ const ProductsPage = () => {
               </Typography>
               <Button fullWidth="false">GET STARTED</Button>
             </Stack>
-            <EquipmentList></EquipmentList>
           </Container>
         </Stack>
       </ThemeProvider>
+      <EquipmentList></EquipmentList>
     </div>
   );
 };

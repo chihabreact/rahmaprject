@@ -1,4 +1,14 @@
+import { 
+  useEffect
+} from "react";
+
+import { 
+  useNavigate,
+} from "react-router-dom";
+
 import "./products-details.styles.css"
+
+import item3 from "../../assets/item3.jpg"
 
 import { Typography, Button } from "@mui/material"
 import CheckIcon from '@mui/icons-material/Check';
@@ -6,12 +16,36 @@ import StoreIcon from '@mui/icons-material/Store';
 
 import NavigationBar from "../NavigationBar/navigation-bar.component"
 
-import item3 from "../../assets/item3.jpg"
-import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectProducts } from "../../store/products/products.selector";
 
 const ProductsDetails = () => {
   const navigate = useNavigate();
-  
+  const { products } = useSelector(selectProducts);
+
+  const productId = Number(window.location.pathname.split("/")[2]);
+
+  if (isNaN(productId)) {
+    navigate("/products");
+  }
+
+  useEffect(() => {
+    if (
+      products !== null && 
+      products !== undefined &&
+      products.length !== 0
+    ) {
+      const isProductExist = Array.from(products).find((product) => productId === product.id);
+      
+      if (!isProductExist) {
+        navigate("/products");
+      }
+    }
+    
+    return;
+  }, [products]);
+
+
   const onClickHandler = (event) => {
     event.preventDefault();
     navigate("/products")

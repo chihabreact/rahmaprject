@@ -186,7 +186,6 @@ const ProductsDetails = () => {
         </div>
       </div>
     </div>
-    // }?W
   )
 }
 

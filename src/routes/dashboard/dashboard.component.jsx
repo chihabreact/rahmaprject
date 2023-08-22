@@ -3,10 +3,9 @@ import "./dashboard.styles.css"
 import { useState, useEffect } from "react";
 import { 
     Outlet,
-    useLocation
+    useLocation,
+    useNavigate
 } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { selectCurrentUser } from "../../store/user/user.selector";
 
 import DashboardNavigation from "../../components/dashboard-navigation/dashboard-navigation.component"
 
@@ -14,21 +13,21 @@ const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   
-  const { currentUser } = useSelector(selectCurrentUser);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    if (!currentUser || !token) {
+    if (!token) {
       localStorage.clear();
-      window.location.href = "/login";
+      navigate("/login");
     } else {
       setIsUserLoggedIn(true);
       setIsLoading(false);
     }
 
     return;
-  }, [currentUser]);
+  }, []);
   
   
   const { pathname } = useLocation();  

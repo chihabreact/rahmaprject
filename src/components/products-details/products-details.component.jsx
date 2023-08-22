@@ -10,8 +10,6 @@ import {
 
 import "./products-details.styles.css"
 
-import item3 from "../../assets/item3.jpg"
-
 import { Typography, Button } from "@mui/material"
 import CheckIcon from '@mui/icons-material/Check';
 import StoreIcon from '@mui/icons-material/Store';

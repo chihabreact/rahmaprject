@@ -74,7 +74,7 @@ const ProductListDashboard = () => {
                       sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                   >
                           <TableCell sx={{ padding: 1 }} align="center" component="th" scope="row">
-                              <img className="product-image" src={API_URL + product.attributes.image1.data[0].attributes.formats.small.url} alt="logo"/>
+                              <img className="product-image-dashboard" src={API_URL + product.attributes.image1.data[0].attributes.formats.small.url} alt="logo"/>
                           </TableCell>
                           <TableCell sx={{ padding: 1 }} align="center">{product.attributes.title}</TableCell>
                           <TableCell sx={{ padding: 1 }} align="center">{product.attributes.description}</TableCell>

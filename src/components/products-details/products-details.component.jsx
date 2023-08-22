@@ -1,6 +1,8 @@
 import { 
-  useEffect
+  useEffect,
+  useReducer
 } from "react";
+
 
 import { 
   useNavigate,
@@ -19,7 +21,19 @@ import NavigationBar from "../NavigationBar/navigation-bar.component"
 import { useSelector } from "react-redux";
 import { selectProducts } from "../../store/products/products.selector";
 
+import { API_URL } from "../../utils/request.js";
+
+import { 
+  INITIAL_STATE,
+  PRODUCT_ACTION_TYPES, 
+  productReducer, 
+} from "../../utils/reducer/product/product.reducer";
+
 const ProductsDetails = () => {
+  // const [product, setProduct] = useState(null);
+  // const [mainImageURL, setMainImageURL] = useState(null);
+
+  const [state, dispatch] = useReducer(productReducer, INITIAL_STATE);
   const navigate = useNavigate();
   const { products } = useSelector(selectProducts);
 
@@ -40,46 +54,74 @@ const ProductsDetails = () => {
       if (!isProductExist) {
         navigate("/products");
       }
+      const targetProduct = Array.from(products).filter(product => product.id === productId)[0];
+      // setProduct(targetProduct);
+      dispatch({
+        type: PRODUCT_ACTION_TYPES.SET_MAIN_PRODUCT, 
+        payload: {
+          product: targetProduct,
+          mainImageUrl: API_URL + targetProduct.attributes.image1.data[0].attributes.formats.small.url
+        }
+      });
     }
     
     return;
   }, [products]);
-
 
   const onClickHandler = (event) => {
     event.preventDefault();
     navigate("/products")
   }
 
+  const onImageClickHandler = (src) => {
+    dispatch({
+      type: PRODUCT_ACTION_TYPES.SET_MAIN_IMAGE, 
+      payload: src
+    });
+  }
+
   return (
+    state.product &&
     <div className="product-details-container">
       <NavigationBar className="hide-nav-link"/>
       <div className="product-details">
         <div className="images-container">
           <div className="main-image-container">
-            <img src={item3} alt="product" className="main-image"/>
+            <img 
+              src={state.mainImage} 
+              alt="product" 
+              className="main-image"
+            />
           </div>
           <div className="secondary-images-container">
-            <img src={item3} alt="product" className="secondary-image"/>
-            <img src={item3} alt="product" className="secondary-image"/>
-            <img src={item3} alt="product" className="secondary-image"/>
+            <img 
+              src={API_URL + state.product.attributes.image1.data[0].attributes.formats.small.url} 
+              alt="product" 
+              className="secondary-image"
+              onClick={() => onImageClickHandler(API_URL + state.product.attributes.image1.data[0].attributes.formats.small.url)}
+            />
+            <img 
+              src={API_URL + state.product.attributes.image2.data[0].attributes.formats.small.url} 
+              alt="product" 
+              className="secondary-image"
+              onClick={() => onImageClickHandler(API_URL + state.product.attributes.image2.data[0].attributes.formats.small.url)}
+            />
+            <img 
+              src={API_URL + state.product.attributes.image3.data[0].attributes.formats.small.url} 
+              alt="product" 
+              className="secondary-image"
+              onClick={() => onImageClickHandler(API_URL + state.product.attributes.image3.data[0].attributes.formats.small.url)}
+            />
           </div>
         </div>
         <div className="product-information-container">
-          <Typography variant="h4" className="product-name">Toyota Land Cruiser</Typography>
-          <Typography variant="h6" style={{ margin: "20px 0px 10px 0px" }}>Price: 
-            <Typography variant="h6" style={{ 
-              display: "inline", 
-              color: "#E25D4C",
-              fontWeight: "lighter" 
-            }}> $ 100,000</Typography>
-          </Typography>
+          <Typography variant="h4" className="product-name">{state.product.attributes.title}</Typography>
           <Typography variant="h6" style={{ margin: "0px 0px 20px 0px" }}>About this Item:
             <Typography variant="p" style={{
               display: "block",
               fontWeight: "lighter",
               fontSize: "1rem"
-            }}>simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised</Typography>
+            }}>{state.product.attributes.description}</Typography>
           </Typography>
           <Typography variant="h6" style={{ 
             margin: "0px 0px 20px 0px",
@@ -111,7 +153,7 @@ const ProductsDetails = () => {
               fontSize: "1rem"
             }}><Typography variant="p" style={{
               fontWeight: "bold",
-            }}>Category</Typography>: Machine</Typography>
+            }}>Category</Typography>: {state.product.attributes.category.data?.attributes.title}</Typography>
           </Typography>
           <Typography variant="h6" style={{ 
             margin: "0px 0px 20px 0px",
@@ -144,6 +186,7 @@ const ProductsDetails = () => {
         </div>
       </div>
     </div>
+    // }?W
   )
 }
 

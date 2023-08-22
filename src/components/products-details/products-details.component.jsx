@@ -10,8 +10,6 @@ import {
 
 import "./products-details.styles.css"
 
-import item3 from "../../assets/item3.jpg"
-
 import { Typography, Button } from "@mui/material"
 import CheckIcon from '@mui/icons-material/Check';
 import StoreIcon from '@mui/icons-material/Store';
@@ -30,9 +28,6 @@ import {
 } from "../../utils/reducer/product/product.reducer";
 
 const ProductsDetails = () => {
-  // const [product, setProduct] = useState(null);
-  // const [mainImageURL, setMainImageURL] = useState(null);
-
   const [state, dispatch] = useReducer(productReducer, INITIAL_STATE);
   const navigate = useNavigate();
   const { products } = useSelector(selectProducts);

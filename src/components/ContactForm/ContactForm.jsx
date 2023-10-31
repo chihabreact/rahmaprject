@@ -4,11 +4,6 @@ import {
   TextField,
   TextareaAutosize,
   Button,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-  FormHelperText,
   Grid,
 } from "@mui/material";
 
@@ -61,7 +56,7 @@ const ContactForm = () => {
         <Grid item xs={12}>
           <TextField
             fullWidth
-            label="number"
+            label="Number"
             name="number"
             value={formData.number}
             onChange={handleChange}
@@ -73,11 +68,12 @@ const ContactForm = () => {
           <TextareaAutosize
             minRows={4}
             fullWidth
-            placeholder="Message"
+            placeholder="Message *"
             name="message"
             value={formData.message}
             onChange={handleChange}
             required
+            style={{ fontSize: '22px', fontWeight: '300', fontFamily: 'Arial, sans-serif' }}
           />
         </Grid>
         <Grid item xs={12}>

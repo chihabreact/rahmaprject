@@ -11,12 +11,21 @@ const EquipmentItem = ({ product, onClickHandler }) => {
         className="products-list-item"
         key={product.id}
       >
-        <img
-          src={API_URL + product.attributes.image1.data[0].attributes.formats.small.url} 
-          alt={product.attributes.title}
-          onClick={() => onClickHandler(product.id)}
-          className="product-image"
-        />
+        {product.attributes.image1.data[0].attributes.formats.small ?
+          <img
+            src={API_URL + product.attributes.image1.data[0].attributes.formats.small.url} 
+            alt={product.attributes.title}
+            onClick={() => onClickHandler(product.id)}
+            className="product-image"
+          />
+          :
+          <img
+            src={API_URL + product.attributes.image1.data[0].attributes.formats.thumbnail.url} 
+            alt={product.attributes.title}
+            onClick={() => onClickHandler(product.id)}
+            className="product-image"
+          />
+        }
         <p>{product.attributes.title}</p>
       </div>
     </li>

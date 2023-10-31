@@ -45,6 +45,7 @@ const ProductsDetails = () => {
       products.length !== 0
     ) {
       const isProductExist = Array.from(products).find((product) => productId === product.id);
+      console.log(isProductExist);
       
       if (!isProductExist) {
         navigate("/products");
@@ -69,6 +70,7 @@ const ProductsDetails = () => {
   }
 
   const onImageClickHandler = (src) => {
+    console.log(src);
     dispatch({
       type: PRODUCT_ACTION_TYPES.SET_MAIN_IMAGE, 
       payload: src
@@ -89,24 +91,51 @@ const ProductsDetails = () => {
             />
           </div>
           <div className="secondary-images-container">
-            <img 
-              src={API_URL + state.product.attributes.image1.data[0].attributes.formats.small.url} 
-              alt="product" 
-              className="secondary-image"
-              onClick={() => onImageClickHandler(API_URL + state.product.attributes.image1.data[0].attributes.formats.small.url)}
-            />
-            <img 
-              src={API_URL + state.product.attributes.image2.data[0].attributes.formats.small.url} 
-              alt="product" 
-              className="secondary-image"
-              onClick={() => onImageClickHandler(API_URL + state.product.attributes.image2.data[0].attributes.formats.small.url)}
-            />
-            <img 
-              src={API_URL + state.product.attributes.image3.data[0].attributes.formats.small.url} 
-              alt="product" 
-              className="secondary-image"
-              onClick={() => onImageClickHandler(API_URL + state.product.attributes.image3.data[0].attributes.formats.small.url)}
-            />
+          {state.product.attributes.image1.data[0].attributes.formats.small ? 
+              <img 
+                src={API_URL + state.product.attributes.image1.data[0].attributes.formats.small.url} 
+                alt="product" 
+                className="secondary-image"
+                onClick={() => onImageClickHandler(API_URL + state.product.attributes.image1.data[0].attributes.formats.small.url)}
+              />
+              :
+              <img 
+                src={API_URL + state.product.attributes.image1.data[0].attributes.formats.thumbnail.url} 
+                alt="product" 
+                className="secondary-image"
+                onClick={() => onImageClickHandler(API_URL + state.product.attributes.image1.data[0].attributes.formats.thumbnail.url)}
+              />
+            }
+            {state.product.attributes.image2.data[0].attributes.formats.small ? 
+              <img 
+                src={API_URL + state.product.attributes.image2.data[0].attributes.formats.small.url} 
+                alt="product" 
+                className="secondary-image"
+                onClick={() => onImageClickHandler(API_URL + state.product.attributes.image2.data[0].attributes.formats.small.url)}
+              />
+              :
+              <img 
+                src={API_URL + state.product.attributes.image2.data[0].attributes.formats.thumbnail.url} 
+                alt="product" 
+                className="secondary-image"
+                onClick={() => onImageClickHandler(API_URL + state.product.attributes.image2.data[0].attributes.formats.thumbnail.url)}
+              />
+            }
+            {state.product.attributes.image3.data[0].attributes.formats.small ? 
+              <img 
+                src={API_URL + state.product.attributes.image3.data[0].attributes.formats.small.url} 
+                alt="product" 
+                className="secondary-image"
+                onClick={() => onImageClickHandler(API_URL + state.product.attributes.image3.data[0].attributes.formats.small.url)}
+              />
+              :
+              <img 
+                src={API_URL + state.product.attributes.image3.data[0].attributes.formats.thumbnail.url} 
+                alt="product" 
+                className="secondary-image"
+                onClick={() => onImageClickHandler(API_URL + state.product.attributes.image3.data[0].attributes.formats.thumbnail.url)}
+              />
+            }
           </div>
         </div>
         <div className="product-information-container">
